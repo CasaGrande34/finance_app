@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 //file addresses
 import 'custom_icon_button.dart';
-import '../../../../models/expenses.dart';
 import 'package:finance_app/datatables/expenses_datasource.dart';
 import 'package:finance_app/ui/expenses_layout/web/components/register_expense_dialog.dart';
 
@@ -51,9 +50,9 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
                       
                       DataColumn( label: Text( 'Name' ) ),
                       DataColumn( label: Text( 'Apellido' ) ),
-                      // DataColumn( label: Text( 'Day' ) ),
-                      // DataColumn( label: Text( 'State' ) ),
-                      // DataColumn( label: Text( 'Money' ) ),
+                      DataColumn( label: Text( 'Day' ) ),
+                      DataColumn( label: Text( 'State' ) ),
+                      DataColumn( label: Text( 'Money' ) ),
                       // DataColumn( label: Text( 'Type' ) ),
                       // DataColumn( label: Text( 'Account' ) ),
                       // DataColumn( label: Text( 'SubAccount' ) ),
@@ -65,7 +64,7 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
                       // DataColumn( label: Text( 'Description' ) ),
                       
                     ],
-                    source: ExpensesDTS(expenses: result),
+                    source: ExpensesDTS(),
                     
                     header: const Text('Precio es lo que pagas, valor es lo que recibes - Warrent Buffet'),
                     onRowsPerPageChanged: (value) {
