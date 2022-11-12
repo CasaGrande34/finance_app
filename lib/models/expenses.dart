@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Expenses {
   
     int year;
@@ -31,30 +33,32 @@ class Expenses {
     this.tag,
     this.description,
   });
- 
- Expenses.fromMap(Map<String, Object?> json) :
- this(
   
-  year : json['year']! as int,
-  mounth : json['mounth']! as int,
-  day : json['day']! as int,
-  state : json['state']! as String,
-  money : json['money']! as int,
-  type : json['type']! as String,
-  account : json['account']! as String,
-  subAccount : json['subAccount']! as String,
-  category : json['category']! as String,
-  subCategory : json['subCategory']! as String,
-  form : json['form']! as String,
-  currency : json['currency']! as String,
-  tag : json['tag']! as String,
-  description : json['description']! as String
   
- );
- 
- Map<String, Object?> toJson() {
+  factory Expenses.fromJson(String str) => Expenses.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Expenses.fromMap(Map<String, dynamic> json) => Expenses(
+    
+      year        : json['year'] ,
+      mounth      : json['mounth'],
+      day         : json['day'],
+      state       : json['state'],
+      money       : json['money'],
+      type        : json['type'],
+      account     : json['account'] ,
+      subAccount  : json['subAccount'],
+      category    : json['category'],
+      subCategory : json['subCategory'],
+      form        : json['form'],
+      currency    : json['currency'],
+      tag         : json['tag'],
+      description : json['description']
   
-  return {
+  );
+
+  Map<String, dynamic> toMap() => {
     
     'year' : year ,
     'mounth' : mounth ,
@@ -71,7 +75,4 @@ class Expenses {
     'tag' : tag ,
     'description' : description
   };
-  
- }
- 
 }

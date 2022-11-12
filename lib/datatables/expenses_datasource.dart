@@ -1,14 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import '../models/expenses.dart';
 
 //dependencies
 
 //file addresses
-import '../models/expenses.dart';
 
 class ExpensesDTS extends DataTableSource {
   
-  final List<Expenses> expenses;
-  ExpensesDTS(this.expenses);
+  List expenses;
+  ExpensesDTS({
+    required this.expenses,
+  });
   
   @override
   DataRow? getRow(int index) {
@@ -19,19 +23,19 @@ class ExpensesDTS extends DataTableSource {
       cells: [
       
         DataCell( Placeholder() ),  
-        DataCell( Text('Cell #2 index:$index') ),  
-        DataCell( Text('Cell #3 index:$index') ),  
-        DataCell( Text('Cell #4 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
-        DataCell( Text('Cell #5 index:$index') ),  
+        DataCell( Text(expenses[index]['account']) ),  
+        // DataCell( Text('Cell #3 index:$index') ),  
+        // DataCell( Text('Cell #4 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
+        // DataCell( Text('Cell #5 index:$index') ),  
       
       ]
     );
@@ -44,7 +48,7 @@ class ExpensesDTS extends DataTableSource {
   int get rowCount => 1000;
 
   @override
-  int get selectedRowCount => 0;
+  int get selectedRowCount => expenses.length;
   
   
 }
