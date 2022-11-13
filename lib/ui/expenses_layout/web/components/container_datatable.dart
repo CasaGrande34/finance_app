@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 //file addresses
+import '../../../../models/expenses.dart';
 import 'custom_icon_button.dart';
 import 'package:finance_app/datatables/expenses_datasource.dart';
 import 'package:finance_app/ui/expenses_layout/web/components/register_expense_dialog.dart';
@@ -23,13 +24,16 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
   
   int _rowPerPage = PaginatedDataTable.defaultRowsPerPage;
   
-  Stream<QuerySnapshot> expenses = FirebaseFirestore.instance.collection('expenses').snapshots();  
+  Stream<QuerySnapshot<Map<String,dynamic>>> expenses = FirebaseFirestore.instance.collection('expenses').snapshots();  
   @override
   Widget build(BuildContext context) {
     
-    return StreamBuilder<QuerySnapshot>(
+    return StreamBuilder<QuerySnapshot<Map<String,dynamic>>>(
       stream: expenses,
-      builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+      builder: (context,  snapshot) {
+        
+        double w = MediaQuery.of(context).size.width; 
+        double h = MediaQuery.of(context).size.height; 
         
         if(snapshot.hasError) { 
           
@@ -38,154 +42,100 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
             );
         }
         if(snapshot.connectionState == ConnectionState.waiting) {
-          
           return const Center(
             child: CircularProgressIndicator(),
           );
         }
         var result = snapshot.data!.docs;
         
-        return PaginatedDataTable(              
-                       columns: const [
-                      
-                      DataColumn( label: Text( 'Name' ) ),
-                      DataColumn( label: Text( 'Apellido' ) ),
-                      DataColumn( label: Text( 'Day' ) ),
-                      DataColumn( label: Text( 'State' ) ),
-                      DataColumn( label: Text( 'Money' ) ),
-                      // DataColumn( label: Text( 'Type' ) ),
-                      // DataColumn( label: Text( 'Account' ) ),
-                      // DataColumn( label: Text( 'SubAccount' ) ),
-                      // DataColumn( label: Text( 'Category' ) ),
-                      // DataColumn( label: Text( 'SubCategory' ) ),
-                      // DataColumn( label: Text( 'Intercategory' ) ),
-                      // DataColumn( label: Text( 'Form' ) ),
-                      // DataColumn( label: Text( 'Currency' ) ),
-                      // DataColumn( label: Text( 'Description' ) ),
-                      
-                    ],
-                    source: ExpensesDTS(),
-                    
-                    header: const Text('Precio es lo que pagas, valor es lo que recibes - Warrent Buffet'),
-                    onRowsPerPageChanged: (value) {
-                      
-                      setState(() { 
-                        _rowPerPage = value ?? 10;
-                      });
-                    },
-                    rowsPerPage: _rowPerPage,
-                    actions: [
-                      
-                      CustomIconButton(
-                          icon: Icons.add,
-                          onPressed: () {
-                            
-                            //!Register Expense
-                            showDialog(
-                                       
-                                context: context, 
-                                builder: (context) {    
-                                  return const RegisterExpenseDialog();
-                                
-                              });
-                          },
-                          text: 'Crear',
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      CustomIconButton(
-    
-                          icon: Icons.add,
-                          onPressed: () {},
-                          text: 'Borrar',
-                          color: Theme.of(context).primaryColor,                    
-                        ),
-                    ],
-      
-                  );
-      }
-    );
-    }
-  }
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//     return PaginatedDataTable(
-//         columns: const [
-          
-//           DataColumn( label: Text( 'Year' ) ),
-//           DataColumn( label: Text( 'Month' ) ),
-//           DataColumn( label: Text( 'Day' ) ),
-//           DataColumn( label: Text( 'State' ) ),
-//           DataColumn( label: Text( 'Money' ) ),
-//           DataColumn( label: Text( 'Type' ) ),
-//           DataColumn( label: Text( 'Account' ) ),
-//           DataColumn( label: Text( 'SubAccount' ) ),
-//           DataColumn( label: Text( 'Category' ) ),
-//           DataColumn( label: Text( 'SubCategory' ) ),
-//           DataColumn( label: Text( 'Intercategory' ) ),
-//           DataColumn( label: Text( 'Form' ) ),
-//           DataColumn( label: Text( 'Currency' ) ),
-//           DataColumn( label: Text( 'Description' ) ),
-          
-//         ],
+        print(result);
         
-//         source: ExpensesDTS(),
-//         header: const Text('Precio es lo que pagas, valor es lo que recibes - Warrent Buffet'),
-//         onRowsPerPageChanged: (value) {
-          
-//           setState(() { 
-//             _rowPerPage = value ?? 10;
-//           });
-          
-//         },
-//         rowsPerPage: _rowPerPage,
-//         actions: [
-          
-//           CustomIconButton(
+        return Container(
+          width: w,
+          height: h,
+          color: Colors.black,
+          child: ListView.builder(
             
+            itemCount: result.length,
+            itemBuilder: (context, index) => ListTile(
             
-//               icon: Icons.add,
-//               onPressed: () {
-                
-//                 //!Register Expense
-//                 showDialog(
-                  
-                                    
-//                     context: context, 
-//                     builder: (context) {
+                title: Text(result[index].data()["account"], style: TextStyle(color: Colors.white),),
+                leading: Icon(Icons.add_to_drive),
+                subtitle: Text(result[index].data()["name"]?? 'No name', style: TextStyle(color: Colors.white),)
+              ),
+              
+           )
+        );
+        
+      });}}
+        
+        
+        
+        
+        
+        
+        
+  //       return PaginatedDataTable(              
+  //                      columns: const [
                       
-//                       return const RegisterExpenseDialog();
+  //                     DataColumn( label: Text( 'Name' ) ),
+  //                     DataColumn( label: Text( 'Apellido' ) ),
+  //                     DataColumn( label: Text( 'Day' ) ),
+  //                     DataColumn( label: Text( 'State' ) ),
+  //                     DataColumn( label: Text( 'Money' ) ),
+  //                     // DataColumn( label: Text( 'Type' ) ),
+  //                     // DataColumn( label: Text( 'Account' ) ),
+  //                     // DataColumn( label: Text( 'SubAccount' ) ),
+  //                     // DataColumn( label: Text( 'Category' ) ),
+  //                     // DataColumn( label: Text( 'SubCategory' ) ),
+  //                     // DataColumn( label: Text( 'Intercategory' ) ),
+  //                     // DataColumn( label: Text( 'Form' ) ),
+  //                     // DataColumn( label: Text( 'Currency' ) ),
+  //                     // DataColumn( label: Text( 'Description' ) ),
+                      
+  //                   ],
                     
-//                   });
-                
-//               },
-//               text: 'Crear',
-//               color: Theme.of(context).primaryColor,
-            
-//             ),
-//           CustomIconButton(
-            
-            
-//               icon: Icons.add,
-//               onPressed: () {},
-//               text: 'Borrar',
-//               color: Theme.of(context).primaryColor,
-            
-//             ),
-//         ],
-//       );
-//     }
-// }
-
+  //                   source: ExpensesDTS(),
+  //                   // source: ExpensesDTS(expenses: result),
+                    
+  //                   header: const Text('Precio es lo que pagas, valor es lo que recibes - Warrent Buffet'),
+  //                   onRowsPerPageChanged: (value) {
+                      
+  //                     setState(() { 
+  //                       _rowPerPage = value ?? 10;
+  //                     });
+  //                   },
+  //                   rowsPerPage: _rowPerPage,
+  //                   actions: [
+                      
+  //                     CustomIconButton(
+  //                         icon: Icons.add,
+  //                         onPressed: () {
+                            
+  //                           //!Register Expense
+  //                           showDialog(
+                                       
+  //                               context: context, 
+  //                               builder: (context) {    
+  //                                 return const RegisterExpenseDialog();
+                                
+  //                             });
+  //                         },
+  //                         text: 'Crear',
+  //                         color: Theme.of(context).primaryColor,
+  //                       ),
+  //                     CustomIconButton(
+    
+  //                         icon: Icons.add,
+  //                         onPressed: () {},
+  //                         text: 'Borrar',
+  //                         color: Theme.of(context).primaryColor,                    
+  //                       ),
+  //                   ],
+      
+  //                 );
+  //     }
+  //   );
+  //   }
+  // }
+   

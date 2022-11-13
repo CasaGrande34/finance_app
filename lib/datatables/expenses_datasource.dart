@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 
+import '../models/expenses.dart';
+
 //dependencies
 
 //file addresses
 
 class ExpensesDTS extends DataTableSource {
   
+  // List<Expenses> expenses;
+  // ExpensesDTS({
+  //   required this.expenses,
+  // });
+  
   @override
   DataRow? getRow(int index) {
     
+
     return DataRow.byIndex(
-      
       index: index,
       cells: [
       
-        DataCell( Placeholder() ),  
+        // DataCell( Text(expenses[index].account) ),  
         DataCell( Text('account') ),  
         DataCell( Text('Cell #3 index:$index') ),  
         DataCell( Text('Cell #4 index:$index') ),  
@@ -37,7 +44,7 @@ class ExpensesDTS extends DataTableSource {
   bool get isRowCountApproximate => true;
 
   @override
-  int get rowCount => 1000;
+  int get rowCount => 10;
 
   @override
   int get selectedRowCount => 0;
