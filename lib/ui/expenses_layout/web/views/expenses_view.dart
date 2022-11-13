@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 //file addresses
-import '../components/listview_datatable_prueba.dart';
 import '../components/navbar_custom.dart';
 import '../../../../utils/fonts_custom.dart';
 import '../components/container_datatable.dart';
@@ -41,10 +40,9 @@ class ExpensesView extends StatelessWidget {
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: padding2),
-                            // //!DATATABLE
-                            // child: ContainerDataTable(),
-                            //!ListViewDATATABLE
-                            child: ListViewDataTable(),
+                            //!DATATABLE
+                            child: ContainerDataTable(),
+                        
                             
                           ),               
                           addVerticalSpace(padding1)         
