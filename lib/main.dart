@@ -1,3 +1,5 @@
+import 'package:finance_app/ui/create_account_layout/web/views/create_account.dart';
+import 'package:finance_app/ui/login_layout/web/views/login_view.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
@@ -10,7 +12,6 @@ import 'package:finance_app/services/theme_custom.dart';
 import 'ui/expenses_layout/web/views/expenses_view.dart';
 
 void main() async {
-  
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
@@ -19,11 +20,9 @@ void main() async {
         projectId: "expenses-appweb",
         messagingSenderId: "608720937361",
         appId: "1:608720937361:web:8c9c85e9813927f2f73a30"
-      
       ),
     );  
   runApp( const AppState() );
-  
 }
 
 class AppState extends StatelessWidget {
@@ -33,24 +32,18 @@ class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      
       providers: [
-        
         ChangeNotifierProvider(create: (_) => ExpensesProvider()),
         ChangeNotifierProvider(create: (_) => DataFirestoreProvider()),
         
       ],
-      
       child: const MyApp(),
-      
     );
   }
 }
 
 class MyApp extends StatefulWidget {
-  
   final title = 'Finance App';
-  
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -63,13 +56,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build( BuildContext context ) {
     return MaterialApp(
-      
       debugShowCheckedModeBanner: false,
       title: widget.title,
-      home: const ExpensesView(),
+      home: CreateAccountView(),
       theme: customDarkTheme(),
       themeMode: ThemeMode.system,
-      
     );
   }
 }
