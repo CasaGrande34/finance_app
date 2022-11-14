@@ -57,15 +57,71 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
           child: ListView.builder(
             
             itemCount: result.length,
-            itemBuilder: (context, index) => ListTile(
-            
-                title: Text(result[index].data()["account"], style: TextStyle(color: Colors.white),),
-                leading: Icon(Icons.add_to_drive),
-                subtitle: Text(result[index].data()["name"]?? 'No name', style: TextStyle(color: Colors.white),)
-              ),
+            itemBuilder: (context, index) { 
               
-           )
-        );
+              
+                return PaginatedDataTable(              
+                       columns: [
+                      
+                      DataColumn( label: Text( result[index]['account'] ) ),
+                      DataColumn( label: Text( 'Apellido' ) ),
+                      DataColumn( label: Text( 'Day' ) ),
+                      DataColumn( label: Text( 'State' ) ),
+                      DataColumn( label: Text( 'Money' ) ),
+                      // DataColumn( label: Text( 'Type' ) ),
+                      // DataColumn( label: Text( 'Account' ) ),
+                      // DataColumn( label: Text( 'SubAccount' ) ),
+                      // DataColumn( label: Text( 'Category' ) ),
+                      // DataColumn( label: Text( 'SubCategory' ) ),
+                      // DataColumn( label: Text( 'Intercategory' ) ),
+                      // DataColumn( label: Text( 'Form' ) ),
+                      // DataColumn( label: Text( 'Currency' ) ),
+                      // DataColumn( label: Text( 'Description' ) ),
+                      
+                    ],
+                    
+                    source: ExpensesDTS(),
+                    // source: ExpensesDTS(expenses: result),
+                    
+                    header: const Text('Precio es lo que pagas, valor es lo que recibes - Warrent Buffet'),
+                    onRowsPerPageChanged: (value) {
+                      
+                      setState(() { 
+                        _rowPerPage = value ?? 10;
+                      });
+                    },
+                    rowsPerPage: _rowPerPage,
+                    actions: [
+                      
+                      CustomIconButton(
+                          icon: Icons.add,
+                          onPressed: () {
+                            
+                            //!Register Expense
+                            showDialog(
+                                       
+                                context: context, 
+                                builder: (context) {    
+                                  return const RegisterExpenseDialog();
+                                
+                              });
+                          },
+                          text: 'Crear',
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      CustomIconButton(
+    
+                          icon: Icons.add,
+                          onPressed: () {},
+                          text: 'Borrar',
+                          color: Theme.of(context).primaryColor,                    
+                        ),
+                    ],
+      
+                  
+              
+           );}
+        ));
         
       });}}
         

@@ -26,7 +26,7 @@ class ExpensesDTS extends DataTableSource {
         DataCell( Text('Cell #3 index:$index') ),  
         DataCell( Text('Cell #4 index:$index') ),  
         DataCell( Text('Cell #5 index:$index') ),  
-        // DataCell( Text('Cell #5 index:$index') ),  
+        DataCell( Text('Cell #5 index:$index') ),  
         // DataCell( Text('Cell #5 index:$index') ),  
         // DataCell( Text('Cell #5 index:$index') ),  
         // DataCell( Text('Cell #5 index:$index') ),  
