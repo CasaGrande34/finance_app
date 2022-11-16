@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final anton = GoogleFonts.anton(
+final antonBlack = GoogleFonts.anton(
   
   color: Colors.black,
   fontSize: 24,

@@ -34,7 +34,7 @@ class ExpensesView extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: padding2, vertical: padding2),
-                                child: Text('Expenses', style:  anton,),
+                                child: Text('Expenses', style:  antonBlack,),
                               )
                             ],
                           ),

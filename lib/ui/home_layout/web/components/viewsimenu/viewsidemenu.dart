@@ -60,7 +60,7 @@ class ViewSideMenuBody extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text('\$ 125.678.11', style: anton,),
+                      Text('\$ 125.678.11', style: antonBlack,),
                       addHorizontalSpace(25),
                       const Icon(FontAwesomeIcons.circleDollarToSlot, color: ColorsApp.itemSelectionSideBar,),
                     ],
@@ -107,7 +107,7 @@ class ViewSideMenuBody extends StatelessWidget {
                       ],
                     ),
                     // addVerticalSpace(padding4),
-                    Text('\$22.556.34', style: anton.copyWith(
+                    Text('\$22.556.34', style: antonBlack.copyWith(
                         fontSize: 16,
                       ),
                     ),                        

@@ -63,7 +63,7 @@ class _ListTileViewSideMenuState extends State<ListTileViewSideMenu> {
           title: Text(
             
             '\$ ${widget.dinero.toString()} ',
-            style: anton.copyWith(
+            style: antonBlack.copyWith(
               fontSize: 14,
               color: Colors.redAccent,
               letterSpacing: 2.0,
@@ -79,7 +79,7 @@ class _ListTileViewSideMenuState extends State<ListTileViewSideMenu> {
                 label: Text(
                 
                   widget.chip1,
-                  style: anton.copyWith(
+                  style: antonBlack.copyWith(
                     fontSize: 10,
                     color: ColorsApp.itemSelectionSideBar,
                   ),  
@@ -91,7 +91,7 @@ class _ListTileViewSideMenuState extends State<ListTileViewSideMenu> {
                 label: Text(
                   
                   widget.chip2 ?? '',
-                  style: anton.copyWith(
+                  style: antonBlack.copyWith(
                     fontSize: 10,
                     color: ColorsApp.itemSelectionSideBar,
                   ),  
