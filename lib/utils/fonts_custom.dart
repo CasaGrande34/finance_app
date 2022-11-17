@@ -15,3 +15,10 @@ final slabo = GoogleFonts.slabo27px(
   
   
 );
+final satisfy = GoogleFonts.satisfy(
+  
+  color: Colors.white,
+  fontSize: 50,
+  
+  
+);
