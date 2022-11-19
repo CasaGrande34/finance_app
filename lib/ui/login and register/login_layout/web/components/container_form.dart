@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //file addresses
-import '../../../../utils/fonts_custom.dart';
-import '../views/create_account.dart';
-import '../../../../utils/add_space.dart';
-import '../../../../utils/colors_app.dart';
-import '../../../../utils/padding_custom.dart';
-import 'custom_textfield.dart';
+import '../../../../../utils/add_space.dart';
+import '../../../../../utils/colors_app.dart';
+import '../../../../../utils/fonts_custom.dart';
+import '../../../../../utils/inputs/inputs_custom.dart';
+import '../../../../../utils/padding_custom.dart';
 
 class ContainerForm extends StatefulWidget {
   double height;
@@ -18,7 +17,7 @@ class ContainerForm extends StatefulWidget {
     Key? key,
     required this.height,
     required this.width,
-    this.logo,
+    this.logo, required String title,
   }) : super(key: key);
 
   @override
@@ -58,24 +57,19 @@ class BodyContainerForm extends StatelessWidget {
     return Column(
       children: [
         addVerticalSpace(padding1),
-        Text('Crea tu cuenta', style: antonBlack.copyWith(
+        Text('Inicia sesion', style: antonBlack.copyWith(
           color: Colors.white,
           fontSize: 20
         )),
         addVerticalSpace(padding3),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: padding1),
-          child: CustomTextFormField(nombredelCampo: 'Name', icon: const Icon( FontAwesomeIcons.user )),
+          child: TextFormField(decoration: CustomInputs.authInputDecoration(labelText: 'Email',  hintText: 'Ingrese su correo', icon: const  Icon( FontAwesomeIcons.envelope ))),
         ),
         addVerticalSpace(padding3),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: padding1),
-          child: CustomTextFormField(nombredelCampo: 'Email', icon: const  Icon( FontAwesomeIcons.envelope )),
-        ),
-        addVerticalSpace(padding3),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: padding1),
-          child: CustomTextFormField(nombredelCampo: 'Password', icon: const Icon( FontAwesomeIcons.eye )),
+          child: TextFormField(decoration: CustomInputs.authInputDecoration(labelText: 'Password',  hintText: '*********', icon: const Icon( FontAwesomeIcons.eye ))),
         ),
       ],
       

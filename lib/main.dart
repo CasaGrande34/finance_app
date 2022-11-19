@@ -1,5 +1,5 @@
-import 'package:finance_app/ui/create_account_layout/web/views/create_account.dart';
-import 'package:finance_app/ui/login_layout/web/views/login_view.dart';
+import 'package:finance_app/ui/login%20and%20register/create_account_layout/web/views/create_account.dart';
+import 'package:finance_app/ui/login%20and%20register/login_layout/web/views/login_view.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: widget.title,
-      home: CreateAccountView(),
+      home: LoginView(),
       theme: customDarkTheme(),
       themeMode: ThemeMode.system,
     );

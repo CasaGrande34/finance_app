@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 //file addresses
-import '../../../../utils/add_space.dart';
-import '../../../../utils/colors_app.dart';
-import '../../../../utils/fonts_custom.dart';
+import '../../../../../utils/add_space.dart';
+import '../../../../../utils/colors_app.dart';
+import '../../../../../utils/fonts_custom.dart';
 import 'package:finance_app/utils/padding_custom.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../components/container_form.dart';
+import '../../../components/container_form.dart';
 
 
 class CreateAccountView extends StatefulWidget {
@@ -88,7 +87,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                     duration: const Duration(milliseconds: 500),
                     builder: (context, value, child) => Transform.scale(
                       scale: 1.0 * value,
-                      child: ContainerForm( height: .45, width: .35, ))),
+                      child: ContainerForm( height: .45, width: .35, title: 'Crate tu cuenta', ))),
                   addVerticalSpace(padding2),
                   SizedBox(
                     width: w * .3,
