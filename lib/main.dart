@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: widget.title,
-      home: LoginView(),
+      home: CreateAccountView(),
       theme: customDarkTheme(),
       themeMode: ThemeMode.system,
     );

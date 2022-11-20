@@ -18,12 +18,17 @@ class CustomInputs {
     labelText: labelText,
     hintText: hintText,
     labelStyle: const TextStyle(
-      color: ColorsApp.itemSelectionSideBar
+      color: ColorsApp.itemSelectionSideBar,
+      fontSize: 15,
+    ),
+    hintStyle: const TextStyle(
+      fontSize: 13
     ),
     
     // suffix: icon,
     suffixIconColor: ColorsApp.itemSelectionSideBar,
     suffixIcon: icon,
+    
     enabledBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(6)),
       borderSide: BorderSide(
