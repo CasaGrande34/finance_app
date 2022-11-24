@@ -1,5 +1,6 @@
 import 'package:finance_app/ui/login%20and%20register/create_account_layout/web/views/create_account.dart';
 import 'package:finance_app/ui/login%20and%20register/login_layout/web/views/login_view.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
@@ -9,6 +10,7 @@ import 'package:finance_app/providers/data_firestore_provider.dart';
 //file addresses
 import 'package:provider/provider.dart';
 import 'package:finance_app/services/theme_custom.dart';
+import 'routes/router.dart';
 import 'ui/expenses_layout/web/views/expenses_view.dart';
 
 void main() async {
@@ -22,6 +24,7 @@ void main() async {
         appId: "1:608720937361:web:8c9c85e9813927f2f73a30"
       ),
     );  
+    RoutesDelegateFluro.configureRoutes();
   runApp( const AppState() );
 }
 
@@ -58,7 +61,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: widget.title,
-      home: CreateAccountView(),
+      onGenerateRoute: RoutesDelegateFluro.router.generator,
       theme: customDarkTheme(),
       themeMode: ThemeMode.system,
     );
