@@ -7,9 +7,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../../../../utils/add_space.dart';
 import '../../../../../utils/colors_app.dart';
 import '../../../../../utils/fonts_custom.dart';
+import '../components/container_form_create.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 
-import '../components/container_form_create.dart';
 
 
 class CreateAccountView extends StatefulWidget {
@@ -22,8 +22,14 @@ class CreateAccountView extends StatefulWidget {
 
 class _CreateAccountViewState extends State<CreateAccountView> {
   
+  //String que cambian la luminosidad de los iconos de la ui de login y register
+  String logoGithub = 'assets/logo/logo_github.png';
+  String logoPinterest = 'assets/logo/logo_pinterest.png';
+  String logoGoogle = 'assets/logo/logo_google.png';
+   
+  
   //Lista de imagenes de fondos que tienen login y create view
-  List<String> ninjas = [
+  List<String> divisasBackground = [
     'assets/divisa_background/1.jpg',
     'assets/divisa_background/2.jpg',
     'assets/divisa_background/3.jpg',
@@ -57,7 +63,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                 autoPlayCurve: Curves.decelerate,
               ),
               
-              items: List.generate(ninjas.length, (index) => Image.asset(
+              items: List.generate(divisasBackground.length, (index) => Image.asset(
                 'assets/divisa_background/${ index + 1 }.jpg',
                 fit: BoxFit.cover,
                 width: w * .35,
@@ -70,7 +76,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
               children: [
                 addVerticalSpace(70),
                 TweenAnimationBuilder(
-                  curve: Curves.elasticInOut,
+                  curve: Curves.easeInOutCirc,
                   duration: const Duration(milliseconds: 2000),
                   tween: Tween<double>( begin: 1.0, end: 0.0 ),
                   builder: (context, value, child) => Transform.translate(
@@ -80,12 +86,14 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                 //FORM CONTAINER
                 TweenAnimationBuilder(
                   curve: Curves.easeOutQuart,
-                  tween: Tween<double>(begin: 0.0, end: 1.0),
-                  duration: const Duration(milliseconds: 500),
-                  builder: (context, value, child) => Transform.scale(
+                  tween: Tween<double>( begin: 0.0, end: 1.0 ),
+                  duration: const Duration( milliseconds: 500 ),
+                  builder: ( context, value, child ) => Transform.scale(
                     scale: 1.0 * value,
-                    child: ContainerFormCreateAccount( height: .45, width: .35, title: 'Crate tu cuenta', ))),
-                addVerticalSpace(padding2),
+                    child: const ContainerFormCreateAccount( height: .45, width: .35, title: 'Create tu cuenta', ),
+                  ),
+                ),
+                addVerticalSpace( padding2 ),
                 SizedBox(
                   width: w * .3,
                   child: Row(
@@ -98,40 +106,79 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         builder: (context, value, _ ) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
-                          child: ContainerFormCreateAccount(
-                            height: .08, 
-                            width: .06, 
-                            logo: 'assets/logo/logo_github.png',
-                            
+                          child: MouseRegion(
+                            onEnter: (value) {
+                              setState(() {
+                                logoGithub = 'assets/logo/logo_github_iluminado.png';
+                              });
+                            },
+                            onExit: (event) {
+                              setState(() {
+                                logoGithub = 'assets/logo/logo_github.png';
+                              });
+                            },
+                            child: ContainerFormCreateAccount(
+                              height: .08, 
+                              width: .06, 
+                              logo: logoGithub,
+                              
                             ),
-                        ),),
+                          ),
+                        ),
+                      ),
                       TweenAnimationBuilder<double>(
                         curve: Curves.easeOutBack,
                         duration: const Duration(milliseconds: 1200),
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         builder: (context, value, _ ) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
-                          child: ContainerFormCreateAccount(
-                            height: .08, 
-                            width: .06, 
-                            logo: 'assets/logo/logo_pinterest.png',
-                            
+                          child: MouseRegion(
+                            onEnter: (event) {
+                              setState(() {
+                                logoPinterest = 'assets/logo/logo_pinterest_iluminado.png';
+                              });
+                            },
+                            onExit: (event) {
+                              setState(() {
+                                logoPinterest = 'assets/logo/logo_pinterest.png';
+                              });
+                            },
+                            child: ContainerFormCreateAccount(
+                              height: .08, 
+                              width: .06, 
+                              logo: logoPinterest,
+                              
                             ),
-                        ),),
+                          ),
+                        ),
+                      ),
                       TweenAnimationBuilder<double>(
                         curve: Curves.easeOutBack,
                         duration: const Duration(milliseconds: 1800),
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         builder: (context, value, _ ) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
-                          child: ContainerFormCreateAccount(
-                            height: .08, 
-                            width: .06, 
-                            logo: 'assets/logo/logo_google.png',
-                            
+                          child: MouseRegion(
+                            onEnter: (event) {
+                              setState(() {
+                                logoGoogle = 'assets/logo/logo_google_iluminado.png';
+                              });
+                            },
+                            onExit: (event) {
+                              setState(() {
+                                logoGoogle = 'assets/logo/logo_google.png';
+                              });
+                            },
+
+                            child: ContainerFormCreateAccount(
+                              height: .08, 
+                              width: .06, 
+                              logo: logoGoogle,
+                              
                             ),
-                        ),),
-                        
+                          ),
+                        ),
+                      ),  
                     ],
                   ),
                 ),
