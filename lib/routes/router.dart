@@ -15,7 +15,7 @@ class RoutesDelegateFluro {
   static void configureRoutes() {
     
     router.define(
-      '/home', 
+      '/', 
       handler: _homeHandler,
       );
             
@@ -34,6 +34,7 @@ class RoutesDelegateFluro {
       handler: _expensesHandler,
       );
       
+    
     router.notFoundHandler = _view404Handler;
     
   }

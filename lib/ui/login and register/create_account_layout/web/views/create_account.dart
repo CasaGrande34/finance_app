@@ -77,17 +77,17 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                 addVerticalSpace(70),
                 TweenAnimationBuilder(
                   curve: Curves.easeInOutCirc,
-                  duration: const Duration(milliseconds: 2000),
+                  duration: const Duration(milliseconds: 2500),
                   tween: Tween<double>( begin: 1.0, end: 0.0 ),
                   builder: (context, value, child) => Transform.translate(
-                    offset: Offset(0.0, -900 * value),
+                    offset: Offset( 900 * value , 0.0),
                     child: Text('CASAGRANDE', style: satisfy))),
                 addVerticalSpace(50),
                 //FORM CONTAINER
                 TweenAnimationBuilder(
                   curve: Curves.easeOutQuart,
                   tween: Tween<double>( begin: 0.0, end: 1.0 ),
-                  duration: const Duration( milliseconds: 500 ),
+                  duration: const Duration( milliseconds: 1300 ),
                   builder: ( context, value, child ) => Transform.scale(
                     scale: 1.0 * value,
                     child: const ContainerFormCreateAccount( height: .45, width: .35, title: 'Create tu cuenta', ),
@@ -101,8 +101,8 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                     children: [
                       /*	------------------------------------- */ 
                       TweenAnimationBuilder<double>(
-                        curve: Curves.easeOutBack,
-                        duration: const Duration(milliseconds: 900),
+                        curve: Curves.easeInOutCubicEmphasized,
+                        duration: const Duration(milliseconds: 1100),
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         builder: (context, value, _ ) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
@@ -127,8 +127,8 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         ),
                       ),
                       TweenAnimationBuilder<double>(
-                        curve: Curves.easeOutBack,
-                        duration: const Duration(milliseconds: 1200),
+                        curve: Curves.easeInOutCubicEmphasized,
+                        duration: const Duration(milliseconds: 1500),
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         builder: (context, value, _ ) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
@@ -153,8 +153,8 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         ),
                       ),
                       TweenAnimationBuilder<double>(
-                        curve: Curves.easeOutBack,
-                        duration: const Duration(milliseconds: 1800),
+                        curve: Curves.easeInOutCubicEmphasized,
+                        duration: const Duration(milliseconds: 2100),
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         builder: (context, value, _ ) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
@@ -188,7 +188,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                   duration: const Duration(milliseconds: 2500),
                   tween: Tween<double>(begin: 1.0,end: 0),
                   builder: (context, value, child) => Transform.translate(
-                    offset: Offset(900 * value, 0),
+                    offset: Offset( 900 * value, 0 ),
                     child: SizedBox(
                       width: w * .3,
                       child: Row(
@@ -215,7 +215,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       TweenAnimationBuilder(
-                        curve: Curves.easeInOutExpo,
+                        curve: Curves.decelerate,
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         duration: const Duration(milliseconds: 600),
                         builder: (context, value, child) => Transform.translate(
@@ -224,7 +224,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
-                        curve: Curves.easeInOutExpo,
+                        curve: Curves.decelerate,
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         duration: const Duration(milliseconds: 800),
                         builder: (context, value, child) => Transform.translate(
@@ -233,7 +233,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
-                        curve: Curves.easeInOutExpo,
+                        curve: Curves.decelerate,
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         duration: const Duration(milliseconds: 1000),
                         builder: (context, value, child) => Transform.translate(
@@ -242,7 +242,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
-                        curve: Curves.easeInOutExpo,
+                        curve: Curves.decelerate,
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         duration: const Duration(milliseconds: 1200),
                         builder: (context, value, child) => Transform.translate(
@@ -251,7 +251,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
-                        curve: Curves.easeInOutExpo,
+                        curve: Curves.decelerate,
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         duration: const Duration(milliseconds: 1400),
                         builder: (context, value, child) => Transform.translate(
@@ -260,7 +260,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
-                        curve: Curves.bounceInOut,
+                        curve: Curves.decelerate,
                         tween: Tween<double>(begin: 1.0, end: 0.0),
                         duration: const Duration(milliseconds: 1700),
                         builder: (context, value, child) => Transform.translate(
