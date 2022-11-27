@@ -50,34 +50,41 @@ class _CreateAccountViewState extends State<CreateAccountView> {
         children: [
           /* Segun lo que vi en pinterest se pone normalemnte una foto 
           al costado del login o el create asi que aca lo vamos a implementar */
-          SizedBox(
-            height: h,
-            width: w * .35,
-            child: CarouselSlider(
-              
-              options: CarouselOptions(
-                aspectRatio: 2.0,
-                enlargeCenterPage: true,
-                enlargeStrategy: CenterPageEnlargeStrategy.height,
-                autoPlay: true,
-                autoPlayCurve: Curves.decelerate,
+          TweenAnimationBuilder(
+            curve: Curves.decelerate,
+            duration: const Duration( milliseconds: 1300 ),
+            tween: Tween<double>( begin: 0.0, end: 1.0 ),
+            builder: ( context, value, child ) => Transform.scale(
+              scale: 1.0 * value,
+              child: SizedBox(
+              height: h,
+              width: w * .35,
+              child: CarouselSlider(
+                
+                options: CarouselOptions(
+                  aspectRatio: 2.0,
+                  enlargeCenterPage: true,
+                  enlargeStrategy: CenterPageEnlargeStrategy.height,
+                  autoPlay: true,
+                  autoPlayCurve: Curves.decelerate,
+                ),
+                
+                items: List.generate( divisasBackground.length, (index) => Image.asset(
+                    'assets/divisa_background/${ index + 1 }.jpg',
+                    fit: BoxFit.cover,
+                    width: w * .35,
+                  ),
+                ),
               ),
-              
-              items: List.generate(divisasBackground.length, (index) => Image.asset(
-                'assets/divisa_background/${ index + 1 }.jpg',
-                fit: BoxFit.cover,
-                width: w * .35,
-              ))
-              
             ),
-          ),
+          ),),
           Expanded(
             child: Column(
               children: [
                 addVerticalSpace(70),
                 TweenAnimationBuilder(
                   curve: Curves.easeInOutCirc,
-                  duration: const Duration(milliseconds: 2500),
+                  duration: const Duration( milliseconds: 2500 ),
                   tween: Tween<double>( begin: 1.0, end: 0.0 ),
                   builder: (context, value, child) => Transform.translate(
                     offset: Offset( 900 * value , 0.0),
@@ -90,7 +97,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                   duration: const Duration( milliseconds: 1300 ),
                   builder: ( context, value, child ) => Transform.scale(
                     scale: 1.0 * value,
-                    child: const ContainerFormCreateAccount( height: .45, width: .35, title: 'Create tu cuenta', ),
+                    child: const ContainerFormCreateAccount( height: .45, width: .35, title: 'CREA TU CUENTA', ),
                   ),
                 ),
                 addVerticalSpace( padding2 ),

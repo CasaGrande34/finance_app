@@ -6,8 +6,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:finance_app/providers/expenses_provider.dart';
 import 'package:finance_app/providers/data_firestore_provider.dart';
 //file addresses
-import 'routes/router.dart';
+import 'routes/router_flutro.dart';
 import 'package:finance_app/services/theme_custom.dart';
+
 
 void main() async {
   

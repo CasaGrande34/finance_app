@@ -1,10 +1,9 @@
 import 'dart:async';
-
-import 'package:finance_app/providers/login_form_provider.dart';
 import 'package:flutter/material.dart';
 //dependencies
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:finance_app/providers/login_form_provider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 //file addresses
 import '../../../../../utils/fonts_custom.dart';
@@ -56,7 +55,7 @@ class _ContainerFormCreateAccountState extends State<ContainerFormCreateAccount>
 
 class BodyContainerForm extends StatefulWidget {
   final String? title;
-  BodyContainerForm({
+  const BodyContainerForm({
     Key? key,
     this.title,
   }) : super(key: key);
@@ -84,21 +83,18 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                 
                 //AREA DE TEXTFIELDS
                 addVerticalSpace(padding1),
-                Text( widget.title!, style: antonBlack.copyWith(
-                  color: Colors.white,
-                  fontSize: 20
-                )),
+                Text( widget.title!, style: montserrat),
                 addVerticalSpace(padding3),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: padding1),
                   child: TextFormField(decoration: CustomInputs.authInputDecoration( labelText: 'Name',  hintText: 'Ingrese su apodo', icon: const Icon( FontAwesomeIcons.user ))),
                 ),
-                addVerticalSpace(padding3),
+                addVerticalSpace(padding2),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: padding1),
                   child: TextFormField(decoration: CustomInputs.authInputDecoration( labelText: 'Email',  hintText: 'Ingrese su correo', icon: const  Icon( FontAwesomeIcons.envelope ))),
                 ),
-                addVerticalSpace(padding3),
+                addVerticalSpace(padding2),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: padding1),
                   child: TextFormField( 
@@ -136,8 +132,10 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
 
   doSomething() {
     
+    var form = Provider.of<LoginFormProvider>(context);
     Timer(const Duration(milliseconds: 600), () {
   
+      form.validateForm();
       buttonController.success();
       Timer(const Duration(milliseconds: 500), () {
         buttonController.reset();
