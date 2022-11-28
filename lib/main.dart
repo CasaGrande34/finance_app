@@ -22,6 +22,7 @@ void main() async {
         appId: "1:608720937361:web:8c9c85e9813927f2f73a30"
       ),
     );  
+    //Inicializacion de las rutas
     RoutesDelegateFluro.configureRoutes();
   runApp( const AppState() );
 }

@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:provider/provider.dart';
@@ -12,13 +11,13 @@ import '../../../../../utils/add_space.dart';
 import '../../../../../utils/colors_app.dart';
 import '../../../../../utils/padding_custom.dart';
 
-class ContainerFormCreateAccount extends StatefulWidget {
+class ContainerFormRegister extends StatefulWidget {
   final double height;
   final double width;
   final String? logo;
   final String? title;
 
-  const ContainerFormCreateAccount({
+  const ContainerFormRegister({
     Key? key,
     required this.height,
     required this.width,
@@ -27,10 +26,10 @@ class ContainerFormCreateAccount extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<ContainerFormCreateAccount> createState() => _ContainerFormCreateAccountState();
+  State<ContainerFormRegister> createState() => _ContainerFormRegisterState();
 }
 
-class _ContainerFormCreateAccountState extends State<ContainerFormCreateAccount> {
+class _ContainerFormRegisterState extends State<ContainerFormRegister> {
   
   @override
   Widget build(BuildContext context) {
@@ -65,7 +64,6 @@ class BodyContainerForm extends StatefulWidget {
 }
 
 class _BodyContainerFormState extends State<BodyContainerForm> {
-  RoundedLoadingButtonController buttonController = RoundedLoadingButtonController();
   
   @override
   Widget build(BuildContext context) {
@@ -75,7 +73,7 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
       create: (context) => LoginFormProvider(),
       child: Builder(
         builder: (context) {
-          var loginFormProvider = Provider.of<LoginFormProvider>(context);
+          var loginFormProvider = Provider.of<LoginFormProvider>(context,);
           return Form(
             key: loginFormProvider.formCreateKey,
             child: Column(
@@ -111,38 +109,44 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                     ),
                 ),
                 const Spacer(),
+                // OutlinedButton(
+                                    
+                //   onPressed: () {
+                //     loginFormProvider.validateForm();
+                //   }, 
+                //   child: const Text('Ingresar'),
+                //   ),
                 RoundedLoadingButton(
                   width: w * .14,
                   height: h * .06,
-                  controller: buttonController, 
-                  onPressed: doSomething, 
+                  controller: loginFormProvider.buttonController, 
+                  onPressed: () {
+                    loginFormProvider.validateForm();
+                  }, 
                   color: ColorsApp.itemSelectionSideBar,
                   successColor: Colors.purple,
-                  child: Text('Ingresar')
+                  child: const Text('Ingresar')
                 ),
                 addVerticalSpace(padding2),
               ],
               
             ),
           );
+          
+          
         }
       ),
     );
   }
-
+  
   doSomething() {
     
-    var form = Provider.of<LoginFormProvider>(context);
-    Timer(const Duration(milliseconds: 600), () {
-  
-      form.validateForm();
-      buttonController.success();
-      Timer(const Duration(milliseconds: 500), () {
-        buttonController.reset();
-       });
-     });
-     
+    LoginFormProvider form = Provider.of<LoginFormProvider>(context, listen: false);
+    form.validateForm();
+
   }
+
+  
 }
 
 class LogoContainerForm extends StatelessWidget {

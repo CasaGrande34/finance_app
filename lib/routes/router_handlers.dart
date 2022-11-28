@@ -14,7 +14,7 @@ final Handler homeHandler = Handler(
     );
     
   final Handler registerHandler = Handler(
-      handlerFunc: (( context, parameters ) => const CreateAccountView() )
+      handlerFunc: (( context, parameters ) => const RegisterView() )
     );
     
   final Handler view404Handler = Handler(

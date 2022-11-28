@@ -7,20 +7,20 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../../../../utils/add_space.dart';
 import '../../../../../utils/colors_app.dart';
 import '../../../../../utils/fonts_custom.dart';
-import '../components/container_form_create.dart';
+import '../components/container_form_register.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 
 
 
-class CreateAccountView extends StatefulWidget {
+class RegisterView extends StatefulWidget {
   
-  const CreateAccountView({Key? key}) : super(key: key);
+  const RegisterView({Key? key}) : super(key: key);
 
   @override
-  State<CreateAccountView> createState() => _CreateAccountViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _CreateAccountViewState extends State<CreateAccountView> {
+class _RegisterViewState extends State<RegisterView> {
   
   //String que cambian la luminosidad de los iconos de la ui de login y register
   String logoGithub = 'assets/logo/logo_github.png';
@@ -97,7 +97,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                   duration: const Duration( milliseconds: 1300 ),
                   builder: ( context, value, child ) => Transform.scale(
                     scale: 1.0 * value,
-                    child: const ContainerFormCreateAccount( height: .45, width: .35, title: 'CREA TU CUENTA', ),
+                    child: const ContainerFormRegister( height: .45, width: .35, title: 'CREA TU CUENTA', ),
                   ),
                 ),
                 addVerticalSpace( padding2 ),
@@ -124,7 +124,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                                 logoGithub = 'assets/logo/logo_github.png';
                               });
                             },
-                            child: ContainerFormCreateAccount(
+                            child: ContainerFormRegister(
                               height: .08, 
                               width: .06, 
                               logo: logoGithub,
@@ -150,7 +150,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                                 logoPinterest = 'assets/logo/logo_pinterest.png';
                               });
                             },
-                            child: ContainerFormCreateAccount(
+                            child: ContainerFormRegister(
                               height: .08, 
                               width: .06, 
                               logo: logoPinterest,
@@ -177,7 +177,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                               });
                             },
 
-                            child: ContainerFormCreateAccount(
+                            child: ContainerFormRegister(
                               height: .08, 
                               width: .06, 
                               logo: logoGoogle,
@@ -227,7 +227,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         duration: const Duration(milliseconds: 600),
                         builder: (context, value, child) => Transform.translate(
                           offset: Offset( 900 * value, 0.0),
-                          child: Text('Sobre nosotros', style: TextStyle(
+                          child: const Text('Sobre nosotros', style: TextStyle(
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
@@ -236,7 +236,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         duration: const Duration(milliseconds: 800),
                         builder: (context, value, child) => Transform.translate(
                           offset: Offset( 900 * value, 0.0),
-                          child: Text('Contacto', style: TextStyle(
+                          child: const Text('Contacto', style: TextStyle(
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
@@ -245,7 +245,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         duration: const Duration(milliseconds: 1000),
                         builder: (context, value, child) => Transform.translate(
                           offset: Offset( 900 * value, 0.0),
-                          child: Text('Politicas y privacidad', style: TextStyle(
+                          child: const Text('Politicas y privacidad', style: TextStyle(
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
@@ -254,7 +254,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         duration: const Duration(milliseconds: 1200),
                         builder: (context, value, child) => Transform.translate(
                           offset: Offset( 900 * value, 0.0),
-                          child: Text('NewsLetter', style: TextStyle(
+                          child: const Text('NewsLetter', style: TextStyle(
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
@@ -263,7 +263,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         duration: const Duration(milliseconds: 1400),
                         builder: (context, value, child) => Transform.translate(
                           offset: Offset( 900 * value, 0.0),
-                          child: Text('Ayuda', style: TextStyle(
+                          child: const Text('Ayuda', style: TextStyle(
                             color: ColorsApp.iconsColor1
                           ),))),
                       TweenAnimationBuilder(
@@ -272,7 +272,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         duration: const Duration(milliseconds: 1700),
                         builder: (context, value, child) => Transform.translate(
                           offset: Offset( 900 * value, 0.0),
-                          child: Text('Trabaja con nosotros', style: TextStyle(
+                          child: const Text('Trabaja con nosotros', style: TextStyle(
                             color: ColorsApp.iconsColor1
                           ),)))
                     ],

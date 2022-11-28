@@ -6,27 +6,36 @@ import 'router_handlers.dart';
 
 class RoutesDelegateFluro {
   
+  //Routes Strings
+  static const loginR = '/auth/login';
+  static const registerR = '/auth/register';
+  
+  static const homeR = '/';
+  static const expensesR = '/home';
+  static const route404 = '/404';
+  
+  //Objects
   static final FluroRouter router = FluroRouter();
   
   static void configureRoutes() {
     
     router.define(
-      '/', 
-      handler: homeHandler,
+      registerR, 
+      handler: registerHandler,
       );
             
     router.define(
-      '/login', 
+      loginR, 
       handler: loginHandler,
       );
       
     router.define(
-      '/register', 
-      handler: registerHandler,
+      homeR, 
+      handler: homeHandler,
       );
       
     router.define(
-      '/expenses', 
+      expensesR, 
       handler: expensesHandler,
       );
       
