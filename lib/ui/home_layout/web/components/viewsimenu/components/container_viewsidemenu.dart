@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 //file addresses
-import 'package:finance_app/utils/gradients_custom.dart';
 import '../../../../../../utils/colors_app.dart';
 import '../../../../../../utils/fonts_custom.dart';
 
@@ -9,10 +8,10 @@ import '../../../../../../utils/fonts_custom.dart';
 class ContainerViewSideMenu extends StatefulWidget {
   
   
-  String typeTransation;
-  int dinero;
+  final String typeTransation;
+  final int dinero;
   
-  ContainerViewSideMenu({
+  const ContainerViewSideMenu({
     Key? key,
     required this.typeTransation,
     required this.dinero,

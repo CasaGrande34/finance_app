@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class BackgroundAnimationColor extends StatefulWidget {
   
-  Widget child;
-  BackgroundAnimationColor({
+  final Widget child;
+  const BackgroundAnimationColor({
     
     Key? key,
     required this.child,

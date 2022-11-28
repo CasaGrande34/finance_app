@@ -3,7 +3,6 @@ import 'package:finance_app/utils/add_space.dart';
 import 'package:flutter/material.dart';
 
 //file addresses
-import 'package:finance_app/utils/colors_app.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../utils/fonts_custom.dart';
@@ -42,14 +41,14 @@ class DashboardCustom extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         
-                        Icon(FontAwesomeIcons.circleChevronLeft, color: Colors.black,),
+                        const Icon(FontAwesomeIcons.circleChevronLeft, color: Colors.black,),
                         addHorizontalSpace(5)
                         
                       ],
                     ),
               ),
                 
-              DashboardCustomBody(),
+              const DashboardCustomBody(),
               
             ],
           ),
@@ -75,7 +74,7 @@ class DashboardCustomBody extends StatelessWidget {
       child: ListView.builder(
         
         
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         scrollDirection: Axis.horizontal,
         itemCount: monthsOfYear.length,
         itemBuilder: ((context, index) {

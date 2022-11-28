@@ -115,12 +115,12 @@ class ViewSideMenuBody extends StatelessWidget {
                 ),
             ),
         addVerticalSpace(padding3),
-        ContainerViewSideMenu(
+        const ContainerViewSideMenu(
           typeTransation: 'Incomes',
           dinero: 5678933,
         ),
         addVerticalSpace(padding3),
-        ContainerViewSideMenu(
+        const ContainerViewSideMenu(
           typeTransation: 'Expenses',
           dinero: 2342356,
         ),
@@ -130,7 +130,7 @@ class ViewSideMenuBody extends StatelessWidget {
           child: MyExpensesText()
         ),
         addVerticalSpace(padding3),
-        ListTileViewSideMenu(
+        const ListTileViewSideMenu(
           
           icon: FontAwesomeIcons.wallet,
           dinero: -1350,
@@ -139,7 +139,7 @@ class ViewSideMenuBody extends StatelessWidget {
           
         ),
         addVerticalSpace(padding3),
-        ListTileViewSideMenu(
+        const ListTileViewSideMenu(
           
           icon: FontAwesomeIcons.landmark,
           dinero: -5080,
@@ -148,7 +148,7 @@ class ViewSideMenuBody extends StatelessWidget {
           
         ),
         addVerticalSpace(padding3),
-        ListTileViewSideMenu(
+        const ListTileViewSideMenu(
           
           icon: FontAwesomeIcons.creditCard,
           dinero: -2000,

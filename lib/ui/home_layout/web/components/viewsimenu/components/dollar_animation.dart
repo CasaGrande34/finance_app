@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class DollarAnimation extends StatefulWidget {
   
-  DollarAnimation({Key? key}) : super(key: key);
+  const DollarAnimation({Key? key}) : super(key: key);
 
   @override
   State<DollarAnimation> createState() => _DollarAnimationState();

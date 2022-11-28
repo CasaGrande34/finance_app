@@ -11,12 +11,12 @@ import '../../../../../../utils/fonts_custom.dart';
 
 class ListTileViewSideMenu extends StatefulWidget {
   
-  IconData icon;
-  int dinero;
-  String chip1;
-  String? chip2;
+  final IconData icon;
+  final int dinero;
+  final String chip1;
+  final String? chip2;
   
-  ListTileViewSideMenu({
+  const ListTileViewSideMenu({
     Key? key,
     required this.icon,
     required this.dinero,

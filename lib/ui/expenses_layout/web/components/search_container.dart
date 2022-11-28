@@ -44,7 +44,7 @@ class _SearchContent extends StatelessWidget {
       children: [
         
         addHorizontalSpace(padding3),
-        Icon(FontAwesomeIcons.magnifyingGlassDollar, color: ColorsApp.colorSideMenuDark),
+        const Icon(FontAwesomeIcons.magnifyingGlassDollar, color: ColorsApp.colorSideMenuDark),
         addHorizontalSpace(padding3),
         Expanded(
           child: TextFormField(

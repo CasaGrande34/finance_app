@@ -66,18 +66,20 @@ class _MyExpensesTextState extends State<MyExpensesText> {
                     ),
                     
                     );
-                } else result = Text(
+                } else {
+                  result = Text(
                   
                   text,
                   style: TextStyle(color: color),
                   
                   
                   );
+                }
                   return result;
                   
                   
               },
-              likeCountPadding: EdgeInsets.only(left: 5),
+              likeCountPadding: const EdgeInsets.only(left: 5),
            )
         ],
       );

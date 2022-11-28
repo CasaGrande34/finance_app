@@ -96,7 +96,7 @@ class _RegisterExpenseDialogState extends State<RegisterExpenseDialog> {
                       
                 
                       Navigator.pop(context);
-                      print('Data deleted');
+                      // print('Data deleted');
                     }, 
                     text: 'Delete', 
                     icon: Icons.cancel
@@ -121,10 +121,10 @@ class _RegisterExpenseDialogState extends State<RegisterExpenseDialog> {
                     child: Column(
                       children: [
               
-                        MaterialButton(onPressed: _showDatePicker, child: Text('Elegi fecha'),),
-                        TextFormFieldCustom(),
-                        TextFormFieldCustom(),
-                        TextFormFieldCustom(),
+                        MaterialButton(onPressed: _showDatePicker, child: const Text('Elegi fecha'),),
+                        const TextFormFieldCustom(),
+                        const TextFormFieldCustom(),
+                        const TextFormFieldCustom(),
                       ],
                     ),
                   ),
@@ -133,7 +133,7 @@ class _RegisterExpenseDialogState extends State<RegisterExpenseDialog> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: padding1),
                     child: Column(
-                      children: [
+                      children: const [
                         TextFormFieldCustom(),
                         TextFormFieldCustom(),
                         TextFormFieldCustom(),

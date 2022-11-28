@@ -45,14 +45,14 @@ class _ContainerFormLoginState extends State<ContainerFormLogin> {
         width: (widget.width < .1)? 3:0 ,
       ),
       ),
-      child: (widget.width < .1)? LogoContainerForm(logo: widget.logo,) : BodyContainerForm(),
+      child: (widget.width < .1)? LogoContainerForm(logo: widget.logo,) : const BodyContainerForm(),
     );
   }
 }
 
 class BodyContainerForm extends StatefulWidget {
 
-  BodyContainerForm({
+  const BodyContainerForm({
     super.key,
   });
 
@@ -106,7 +106,7 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                   onPressed: doSomething, 
                   color: ColorsApp.itemSelectionSideBar,
                   successColor: Colors.purple,
-                  child: Text('Ingresar')
+                  child: const Text('Ingresar')
                 ),
                 addVerticalSpace(padding2),
         ],

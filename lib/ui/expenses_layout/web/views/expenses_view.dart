@@ -16,7 +16,7 @@ class ExpensesView extends StatelessWidget {
     Widget build(BuildContext context) {
       
       return  Scaffold(
-        backgroundColor: Color.fromARGB(255, 131, 131, 131),
+        backgroundColor: const Color.fromARGB(255, 131, 131, 131),
         body: Row(
           
            crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +38,7 @@ class ExpensesView extends StatelessWidget {
                               )
                             ],
                           ),
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.symmetric(horizontal: padding2),
                             //!DATATABLE
                             child: ContainerDataTable(),

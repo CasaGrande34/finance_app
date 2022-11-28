@@ -43,12 +43,12 @@ ThemeData customLightTheme() {
      return darkTheme.copyWith(
     
        scaffoldBackgroundColor: ColorsApp.backgroundDark,
-       primaryColor: Color.fromARGB(255, 90, 90, 90),
+       primaryColor: const Color.fromARGB(255, 90, 90, 90),
        
        brightness: Brightness.dark,
        textTheme: customTextTheme(darkTheme.textTheme),   
        
-       colorScheme: ColorScheme.dark(),
+       colorScheme: const ColorScheme.dark(),
     	 primaryIconTheme: darkTheme.primaryIconTheme.copyWith(
         
     	 color: Colors.green,

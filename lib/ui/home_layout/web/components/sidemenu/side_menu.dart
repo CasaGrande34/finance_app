@@ -56,24 +56,24 @@ class SideMenuBody extends StatelessWidget {
             
               
               Row(
-                children: [
+                children: const [
                   SelectionBorder(
-                    radius: const BorderRadius.only(
+                    radius: BorderRadius.only(
                       topLeft: Radius.circular(20), 
                       bottomLeft: Radius.circular(20)
                       
                     ),
                   ),
-                  const Spacer(),
+                  Spacer(),
                   CircleAvatar(
                       /*	------------------------------------- */ 
                       backgroundColor: ColorsApp.itemSelectionSideBar,  
-                      child: const Icon(FontAwesomeIcons.clipboard, color: Colors.black,)
+                      child: Icon(FontAwesomeIcons.clipboard, color: Colors.black,)
                     
                     ),
-                  const Spacer(),
+                  Spacer(),
                   SelectionBorder(
-                    radius: const BorderRadius.only(
+                    radius: BorderRadius.only(
                       topRight: Radius.circular(20), 
                       bottomRight: Radius.circular(20)
                       

@@ -10,9 +10,9 @@ import 'package:finance_app/utils/gradients_custom.dart';
 
 class CardVisaTarjeta extends StatefulWidget {
   
-  Visa? visa;
+  final Visa? visa;
   
-  CardVisaTarjeta({
+  const CardVisaTarjeta({
     Key? key,
     this.visa,
   }) : super(key: key);
@@ -25,13 +25,13 @@ class CardVisaTarjetaState extends State<CardVisaTarjeta> {
   @override
   Widget build(BuildContext context) {
     
-    double _w = MediaQuery.of(context).size.width; 
-    double _h = MediaQuery.of(context).size.height; 
+    double w = MediaQuery.of(context).size.width; 
+    double h = MediaQuery.of(context).size.height; 
     
     return Container(
       
-      width: _w / 3,
-      height: _h / 6,
+      width: w / 3,
+      height: h / 6,
       decoration: BoxDecoration(
         
         borderRadius: BorderRadius.circular(20),
@@ -94,7 +94,7 @@ class _BodyCardVisaState extends State<BodyCardVisa> {
           Row(
             children: [
               
-              Text(widget.widget.visa?.nombreTarjeta?? '', style: TextStyle(
+              Text(widget.widget.visa?.nombreTarjeta?? '', style: const TextStyle(
                 color: Colors.amber,
               ),),
               
@@ -139,7 +139,7 @@ class _BodyCardVisaState extends State<BodyCardVisa> {
           const SizedBox(height: 10),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 3,
               ),
               Text(

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../models/expenses.dart';
-
 //dependencies
 
 //file addresses
@@ -22,7 +20,7 @@ class ExpensesDTS extends DataTableSource {
       cells: [
       
         // DataCell( Text(expenses[index].account) ),  
-        DataCell( Text('account') ),  
+        const DataCell( Text('account') ),  
         DataCell( Text('Cell #3 index:$index') ),  
         DataCell( Text('Cell #4 index:$index') ),  
         DataCell( Text('Cell #5 index:$index') ),  

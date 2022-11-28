@@ -90,7 +90,7 @@ class _LoginViewState extends State<LoginView> {
                   duration: const Duration(milliseconds: 500),
                   builder: (context, value, child) => Transform.scale(
                     scale: 1.0 * value,
-                    child: ContainerFormLogin( height: .45, width: .35, title: 'Inicia sesion'))),
+                    child: const ContainerFormLogin( height: .45, width: .35, title: 'Inicia sesion'))),
                 addVerticalSpace(padding2),
                 SizedBox(
                   width: w * .3,

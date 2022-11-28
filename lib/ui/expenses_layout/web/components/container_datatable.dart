@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 //file addresses
-import '../../../../models/expenses.dart';
 import 'custom_icon_button.dart';
 import 'package:finance_app/datatables/expenses_datasource.dart';
 import 'package:finance_app/ui/expenses_layout/web/components/register_expense_dialog.dart';
@@ -48,7 +47,7 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
         }
         var result = snapshot.data!.docs;
         
-        print(result);
+        // print(result);
         
         return Container(
           width: w,
@@ -64,10 +63,10 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
                        columns: [
                       
                       DataColumn( label: Text( result[index]['account'] ) ),
-                      DataColumn( label: Text( 'Apellido' ) ),
-                      DataColumn( label: Text( 'Day' ) ),
-                      DataColumn( label: Text( 'State' ) ),
-                      DataColumn( label: Text( 'Money' ) ),
+                      const DataColumn( label: Text( 'Apellido' ) ),
+                      const DataColumn( label: Text( 'Day' ) ),
+                      const DataColumn( label: Text( 'State' ) ),
+                      const DataColumn( label: Text( 'Money' ) ),
                       // DataColumn( label: Text( 'Type' ) ),
                       // DataColumn( label: Text( 'Account' ) ),
                       // DataColumn( label: Text( 'SubAccount' ) ),

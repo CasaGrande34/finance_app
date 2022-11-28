@@ -8,7 +8,7 @@ class TextFormFieldCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
                     
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           hintText: 'Money',
         ),       
      );

@@ -17,8 +17,8 @@ class HomeView extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
       
-      double _w = MediaQuery.of(context).size.width; 
-      double _h = MediaQuery.of(context).size.height; 
+      double w = MediaQuery.of(context).size.width; 
+      double h = MediaQuery.of(context).size.height; 
       
       return  Scaffold(
         body: Column(

@@ -5,9 +5,9 @@ import '../../../../../../utils/colors_app.dart';
 
 class SelectionBorder extends StatelessWidget {
   
-  BorderRadius radius;
+  final BorderRadius radius;
   
-  SelectionBorder({
+  const SelectionBorder({
     Key? key,
     required this.radius,
   }) : super(key: key);
