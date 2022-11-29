@@ -74,17 +74,17 @@ class ViewSideMenuBody extends StatelessWidget {
           ],
         ),
         addVerticalSpace(5),
-        SizedBox(
+        // SizedBox(
           
-          height: h * .05,
-          child: Marquee(
-            text: ( 'USD/ARS - \$ 156,5 - BTC/USD - \$ 21,600 - EUR/USD - \$ 0,56' ),
-            style: const TextStyle(
-              color: Colors.grey
-            ),
-          ),
-        ),
-        addVerticalSpace(padding3),
+        //   height: h * .05,
+        //   child: Marquee(
+        //     text: ( 'USD/ARS - \$ 156,5 - BTC/USD - \$ 21,600 - EUR/USD - \$ 0,56' ),
+        //     style: const TextStyle(
+        //       color: Colors.grey
+        //     ),
+        //   ),
+        // ),
+        // addVerticalSpace(padding3),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: padding2),
               child: Column(

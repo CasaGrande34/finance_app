@@ -12,19 +12,18 @@ import 'package:finance_app/services/theme_custom.dart';
 
 void main() async {
   
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
+  // await Firebase.initializeApp(
+  //   options: const FirebaseOptions(
       
-        apiKey: "AIzaSyCbCK9gcgv94RkOxzcQXUFJozgIX1yixXw",
-        projectId: "expenses-appweb",
-        messagingSenderId: "608720937361",
-        appId: "1:608720937361:web:8c9c85e9813927f2f73a30"
-      ),
-    );  
-    //Inicializacion de las rutas
-    RoutesDelegateFluro.configureRoutes();
-  runApp( const AppState() );
+  //       apiKey: "AIzaSyCbCK9gcgv94RkOxzcQXUFJozgIX1yixXw",
+  //       projectId: "expenses-appweb",
+  //       messagingSenderId: "608720937361",
+  //       appId: "1:608720937361:web:8c9c85e9813927f2f73a30"
+  //     ),
+  //   );  
+  WidgetsFlutterBinding.ensureInitialized();
+  RoutesDelegateFluro.configureRoutes();
+runApp( const AppState() );
 }
 
 class AppState extends StatelessWidget {
