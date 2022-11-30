@@ -1,7 +1,8 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:provider/provider.dart';
-import 'package:finance_app/providers/login_form_provider.dart';
+import 'package:finance_app/providers/register_form_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 //file addresses
@@ -85,17 +86,44 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                 addVerticalSpace(padding3),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: padding1),
-                  child: TextFormField(decoration: CustomInputs.authInputDecoration( labelText: 'Name',  hintText: 'Ingrese su apodo', icon: const Icon( FontAwesomeIcons.user ))),
+                  child: TextFormField(
+                    onChanged: (value) => loginFormProvider.name = value,
+                    validator: ( value ) {
+                      //CONDICIONES DEL VALIDADOR
+                      if( value == null || value.isEmpty) return 'Ingrese su nombre';
+                      if(value.length < 3 ) return 'Ingrese un apodo de al menos 3 caracteres';
+                      return null;
+                      
+                    },
+                    decoration: CustomInputs.authInputDecoration( 
+                      labelText: 'Name',  
+                      hintText: 'Ingrese su apodo', 
+                      icon: const Icon( FontAwesomeIcons.user ),
+                    ),
+                  ),
                 ),
                 addVerticalSpace(padding2),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: padding1),
-                  child: TextFormField(decoration: CustomInputs.authInputDecoration( labelText: 'Email',  hintText: 'Ingrese su correo', icon: const  Icon( FontAwesomeIcons.envelope ))),
+                  child: TextFormField(
+                    onChanged: (value) => loginFormProvider.email = value,
+                    validator: ( value ) {
+                      //CONDICIONES DEL VALIDADOR
+                      if( !EmailValidator.validate(value?? '') ) return 'Ingrese por favor un email valido';
+                      return null;
+                    },
+                    decoration: CustomInputs.authInputDecoration( 
+                      labelText: 'Email', 
+                      hintText: 'Ingrese su correo', 
+                      icon: const  Icon( FontAwesomeIcons.envelope ),
+                    ),
+                  ),
                 ),
                 addVerticalSpace(padding2),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: padding1),
-                  child: TextFormField( 
+                  child: TextFormField(
+                      onChanged: (value) => loginFormProvider.password = value, 
                       validator: ( value ) {
                         //CONDICIONES DEL VALIDADOR
                         if(value == null || value.isEmpty ) return 'Ingrese su contrasenia';
@@ -104,9 +132,11 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                       },
                       obscureText: true, 
                       decoration: CustomInputs.authInputDecoration( 
-                        labelText: 'Password',  hintText: '*********', icon: const Icon( FontAwesomeIcons.eye ),
-                        ),
+                        labelText: 'Password',  
+                        hintText: '*********', 
+                        icon: const Icon( FontAwesomeIcons.eye ),
                     ),
+                  ),
                 ),
                 const Spacer(),
                 // OutlinedButton(

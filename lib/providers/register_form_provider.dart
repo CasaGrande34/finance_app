@@ -8,19 +8,22 @@ class LoginFormProvider extends ChangeNotifier {
   //boton del register y login para manejar la autenticacion
   RoundedLoadingButtonController buttonController = RoundedLoadingButtonController();
   final GlobalKey<FormState> formCreateKey = GlobalKey();
+  String name = '';
   String email = '';
   String password = '';
   
   validateForm() {
     if (formCreateKey.currentState!.validate()) {
-      buttonController.reset();
-      Timer(const Duration(milliseconds: 500), () {
+      // buttonController.reset();
+      Timer(const Duration(milliseconds: 5000), () {
       buttonController.success();
-      buttonController.reset();
-        
-       });
+        Timer(const Duration(milliseconds: 1000), () {
+          buttonController.reset();
+          
+        });
+     });
     } else {
-      buttonController.stop();
+      // buttonController.stop();
     }
   }  
 }
