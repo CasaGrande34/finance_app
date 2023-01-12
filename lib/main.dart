@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //dependencies
 import 'package:provider/provider.dart';
+// import 'package:url_strategy/url_strategy.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:finance_app/providers/expenses_provider.dart';
 import 'package:finance_app/providers/data_firestore_provider.dart';
@@ -11,6 +12,9 @@ import 'package:finance_app/services/theme_custom.dart';
 
 
 void main() async {
+  
+  //Eliminacion del hastag en flutter web
+  // setPathUrlStrategy();
   
   // await Firebase.initializeApp(
   //   options: const FirebaseOptions(

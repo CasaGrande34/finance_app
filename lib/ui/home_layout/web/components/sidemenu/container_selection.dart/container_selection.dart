@@ -6,10 +6,11 @@ import '../../../../../../utils/colors_app.dart';
 class SelectionBorder extends StatelessWidget {
   
   final BorderRadius radius;
+  final bool active;
   
   const SelectionBorder({
     Key? key,
-    required this.radius,
+    required this.radius, required this.active,
   }) : super(key: key);
 
   @override
@@ -24,7 +25,7 @@ class SelectionBorder extends StatelessWidget {
       width: w * .003,
       decoration: BoxDecoration(
         
-        color: ColorsApp.selectionContainerBorder,
+        color: active ? ColorsApp.selectionContainerBorder : Colors.transparent,
         borderRadius: radius
         
       ),
