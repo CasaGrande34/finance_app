@@ -7,13 +7,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../../../../utils/add_space.dart';
 import '../../../../../utils/colors_app.dart';
 import '../../../../../utils/fonts_custom.dart';
-import '../components/container_form_register.dart';
+import '../../components/container_form_register.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 
-
-
 class RegisterView extends StatefulWidget {
-  
   const RegisterView({Key? key}) : super(key: key);
 
   @override
@@ -21,13 +18,11 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  
   //String que cambian la luminosidad de los iconos de la ui de login y register
   String logoGithub = 'assets/logo/logo_github.png';
   String logoPinterest = 'assets/logo/logo_pinterest.png';
   String logoGoogle = 'assets/logo/logo_google.png';
-   
-  
+
   //Lista de imagenes de fondos que tienen login y create view
   List<String> divisasBackground = [
     'assets/divisa_background/1.jpg',
@@ -37,14 +32,12 @@ class _RegisterViewState extends State<RegisterView> {
     'assets/divisa_background/5.jpg',
     'assets/divisa_background/6.jpg',
   ];
-  
-  
+
   @override
   Widget build(BuildContext context) {
-    
-    double w = MediaQuery.of(context).size.width; 
-    double h = MediaQuery.of(context).size.height; 
-    
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Row(
         children: [
@@ -52,71 +45,77 @@ class _RegisterViewState extends State<RegisterView> {
           al costado del login o el create asi que aca lo vamos a implementar */
           TweenAnimationBuilder(
             curve: Curves.decelerate,
-            duration: const Duration( milliseconds: 1300 ),
-            tween: Tween<double>( begin: 0.0, end: 1.0 ),
-            builder: ( context, value, child ) => Transform.scale(
+            duration: const Duration(milliseconds: 1300),
+            tween: Tween<double>(begin: 0.0, end: 1.0),
+            builder: (context, value, child) => Transform.scale(
               scale: 1.0 * value,
               child: SizedBox(
-              height: h,
-              width: w * .35,
-              child: CarouselSlider(
-                
-                options: CarouselOptions(
-                  aspectRatio: 2.0,
-                  enlargeCenterPage: true,
-                  enlargeStrategy: CenterPageEnlargeStrategy.height,
-                  autoPlay: true,
-                  autoPlayCurve: Curves.decelerate,
-                ),
-                
-                items: List.generate( divisasBackground.length, (index) => Image.asset(
-                    'assets/divisa_background/${ index + 1 }.jpg',
-                    fit: BoxFit.cover,
-                    width: w * .35,
+                height: h,
+                width: w * .35,
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    aspectRatio: 2.0,
+                    enlargeCenterPage: true,
+                    enlargeStrategy: CenterPageEnlargeStrategy.height,
+                    autoPlay: true,
+                    autoPlayCurve: Curves.decelerate,
+                  ),
+                  items: List.generate(
+                    divisasBackground.length,
+                    (index) => Image.asset(
+                      'assets/divisa_background/${index + 1}.jpg',
+                      fit: BoxFit.cover,
+                      width: w * .35,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),),
+          ),
           Expanded(
             child: Column(
               children: [
                 addVerticalSpace(70),
                 TweenAnimationBuilder(
-                  curve: Curves.easeInOutCirc,
-                  duration: const Duration( milliseconds: 2500 ),
-                  tween: Tween<double>( begin: 1.0, end: 0.0 ),
-                  builder: (context, value, child) => Transform.translate(
-                    offset: Offset( 900 * value , 0.0),
-                    child: Text('CASAGRANDE', style: satisfy))),
+                    curve: Curves.easeInOutCirc,
+                    duration: const Duration(milliseconds: 2500),
+                    tween: Tween<double>(begin: 1.0, end: 0.0),
+                    builder: (context, value, child) => Transform.translate(
+                        offset: Offset(900 * value, 0.0),
+                        child: Text('CASAGRANDE', style: satisfy))),
                 addVerticalSpace(50),
                 //FORM CONTAINER
                 TweenAnimationBuilder(
                   curve: Curves.easeOutQuart,
-                  tween: Tween<double>( begin: 0.0, end: 1.0 ),
-                  duration: const Duration( milliseconds: 1300 ),
-                  builder: ( context, value, child ) => Transform.scale(
+                  tween: Tween<double>(begin: 0.0, end: 1.0),
+                  duration: const Duration(milliseconds: 1300),
+                  builder: (context, value, child) => Transform.scale(
                     scale: 1.0 * value,
-                    child: const ContainerFormRegister( height: .45, width: .35, title: 'CREA TU CUENTA', ),
+                    child: const ContainerFormRegister(
+                      height: .45,
+                      width: .35,
+                      title: 'CREA TU CUENTA',
+                    ),
                   ),
                 ),
-                addVerticalSpace( padding2 ),
+                addVerticalSpace(padding2),
                 SizedBox(
                   width: w * .3,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      /*	------------------------------------- */ 
+                      /*	------------------------------------- */
                       TweenAnimationBuilder<double>(
                         curve: Curves.easeInOutCubicEmphasized,
                         duration: const Duration(milliseconds: 1100),
                         tween: Tween<double>(begin: 1.0, end: 0.0),
-                        builder: (context, value, _ ) => Transform.translate(
+                        builder: (context, value, _) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
                           child: MouseRegion(
                             onEnter: (value) {
                               setState(() {
-                                logoGithub = 'assets/logo/logo_github_iluminado.png';
+                                logoGithub =
+                                    'assets/logo/logo_github_iluminado.png';
                               });
                             },
                             onExit: (event) {
@@ -125,10 +124,9 @@ class _RegisterViewState extends State<RegisterView> {
                               });
                             },
                             child: ContainerFormRegister(
-                              height: .08, 
-                              width: .06, 
+                              height: .08,
+                              width: .06,
                               logo: logoGithub,
-                              
                             ),
                           ),
                         ),
@@ -137,24 +135,25 @@ class _RegisterViewState extends State<RegisterView> {
                         curve: Curves.easeInOutCubicEmphasized,
                         duration: const Duration(milliseconds: 1500),
                         tween: Tween<double>(begin: 1.0, end: 0.0),
-                        builder: (context, value, _ ) => Transform.translate(
+                        builder: (context, value, _) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
                           child: MouseRegion(
                             onEnter: (event) {
                               setState(() {
-                                logoPinterest = 'assets/logo/logo_pinterest_iluminado.png';
+                                logoPinterest =
+                                    'assets/logo/logo_pinterest_iluminado.png';
                               });
                             },
                             onExit: (event) {
                               setState(() {
-                                logoPinterest = 'assets/logo/logo_pinterest.png';
+                                logoPinterest =
+                                    'assets/logo/logo_pinterest.png';
                               });
                             },
                             child: ContainerFormRegister(
-                              height: .08, 
-                              width: .06, 
+                              height: .08,
+                              width: .06,
                               logo: logoPinterest,
-                              
                             ),
                           ),
                         ),
@@ -163,12 +162,13 @@ class _RegisterViewState extends State<RegisterView> {
                         curve: Curves.easeInOutCubicEmphasized,
                         duration: const Duration(milliseconds: 2100),
                         tween: Tween<double>(begin: 1.0, end: 0.0),
-                        builder: (context, value, _ ) => Transform.translate(
+                        builder: (context, value, _) => Transform.translate(
                           offset: Offset(0.0, 900 * value),
                           child: MouseRegion(
                             onEnter: (event) {
                               setState(() {
-                                logoGoogle = 'assets/logo/logo_google_iluminado.png';
+                                logoGoogle =
+                                    'assets/logo/logo_google_iluminado.png';
                               });
                             },
                             onExit: (event) {
@@ -176,16 +176,14 @@ class _RegisterViewState extends State<RegisterView> {
                                 logoGoogle = 'assets/logo/logo_google.png';
                               });
                             },
-
                             child: ContainerFormRegister(
-                              height: .08, 
-                              width: .06, 
+                              height: .08,
+                              width: .06,
                               logo: logoGoogle,
-                              
                             ),
                           ),
                         ),
-                      ),  
+                      ),
                     ],
                   ),
                 ),
@@ -193,22 +191,25 @@ class _RegisterViewState extends State<RegisterView> {
                 TweenAnimationBuilder(
                   curve: Curves.easeOutCirc,
                   duration: const Duration(milliseconds: 2500),
-                  tween: Tween<double>(begin: 1.0,end: 0),
+                  tween: Tween<double>(begin: 1.0, end: 0),
                   builder: (context, value, child) => Transform.translate(
-                    offset: Offset( 900 * value, 0 ),
+                    offset: Offset(900 * value, 0),
                     child: SizedBox(
                       width: w * .3,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text('Ya eres parte de este show ?', style: TextStyle(
-                            color: Colors.white 
-                          ),),
+                          const Text(
+                            'Ya eres parte de este show ?',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           addHorizontalSpace(6),
-                          const Text('Inicia sesion', style: TextStyle(
-                            color: ColorsApp.selectionContainerBorder,
-                            fontWeight: FontWeight.bold
-                          ),)
+                          const Text(
+                            'Inicia sesion',
+                            style: TextStyle(
+                                color: ColorsApp.amarilloOscuro,
+                                fontWeight: FontWeight.bold),
+                          )
                         ],
                       ),
                     ),
@@ -222,63 +223,80 @@ class _RegisterViewState extends State<RegisterView> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       TweenAnimationBuilder(
-                        curve: Curves.decelerate,
-                        tween: Tween<double>(begin: 1.0, end: 0.0),
-                        duration: const Duration(milliseconds: 600),
-                        builder: (context, value, child) => Transform.translate(
-                          offset: Offset( 900 * value, 0.0),
-                          child: const Text('Sobre nosotros', style: TextStyle(
-                            color: ColorsApp.iconsColor1
-                          ),))),
+                          curve: Curves.decelerate,
+                          tween: Tween<double>(begin: 1.0, end: 0.0),
+                          duration: const Duration(milliseconds: 600),
+                          builder: (context, value, child) =>
+                              Transform.translate(
+                                  offset: Offset(900 * value, 0.0),
+                                  child: const Text(
+                                    'Sobre nosotros',
+                                    style:
+                                        TextStyle(color: ColorsApp.grisMedio),
+                                  ))),
                       TweenAnimationBuilder(
-                        curve: Curves.decelerate,
-                        tween: Tween<double>(begin: 1.0, end: 0.0),
-                        duration: const Duration(milliseconds: 800),
-                        builder: (context, value, child) => Transform.translate(
-                          offset: Offset( 900 * value, 0.0),
-                          child: const Text('Contacto', style: TextStyle(
-                            color: ColorsApp.iconsColor1
-                          ),))),
+                          curve: Curves.decelerate,
+                          tween: Tween<double>(begin: 1.0, end: 0.0),
+                          duration: const Duration(milliseconds: 800),
+                          builder: (context, value, child) =>
+                              Transform.translate(
+                                  offset: Offset(900 * value, 0.0),
+                                  child: const Text(
+                                    'Contacto',
+                                    style:
+                                        TextStyle(color: ColorsApp.grisMedio),
+                                  ))),
                       TweenAnimationBuilder(
-                        curve: Curves.decelerate,
-                        tween: Tween<double>(begin: 1.0, end: 0.0),
-                        duration: const Duration(milliseconds: 1000),
-                        builder: (context, value, child) => Transform.translate(
-                          offset: Offset( 900 * value, 0.0),
-                          child: const Text('Politicas y privacidad', style: TextStyle(
-                            color: ColorsApp.iconsColor1
-                          ),))),
+                          curve: Curves.decelerate,
+                          tween: Tween<double>(begin: 1.0, end: 0.0),
+                          duration: const Duration(milliseconds: 1000),
+                          builder: (context, value, child) =>
+                              Transform.translate(
+                                  offset: Offset(900 * value, 0.0),
+                                  child: const Text(
+                                    'Politicas y privacidad',
+                                    style:
+                                        TextStyle(color: ColorsApp.grisMedio),
+                                  ))),
                       TweenAnimationBuilder(
-                        curve: Curves.decelerate,
-                        tween: Tween<double>(begin: 1.0, end: 0.0),
-                        duration: const Duration(milliseconds: 1200),
-                        builder: (context, value, child) => Transform.translate(
-                          offset: Offset( 900 * value, 0.0),
-                          child: const Text('NewsLetter', style: TextStyle(
-                            color: ColorsApp.iconsColor1
-                          ),))),
+                          curve: Curves.decelerate,
+                          tween: Tween<double>(begin: 1.0, end: 0.0),
+                          duration: const Duration(milliseconds: 1200),
+                          builder: (context, value, child) =>
+                              Transform.translate(
+                                  offset: Offset(900 * value, 0.0),
+                                  child: const Text(
+                                    'NewsLetter',
+                                    style:
+                                        TextStyle(color: ColorsApp.grisMedio),
+                                  ))),
                       TweenAnimationBuilder(
-                        curve: Curves.decelerate,
-                        tween: Tween<double>(begin: 1.0, end: 0.0),
-                        duration: const Duration(milliseconds: 1400),
-                        builder: (context, value, child) => Transform.translate(
-                          offset: Offset( 900 * value, 0.0),
-                          child: const Text('Ayuda', style: TextStyle(
-                            color: ColorsApp.iconsColor1
-                          ),))),
+                          curve: Curves.decelerate,
+                          tween: Tween<double>(begin: 1.0, end: 0.0),
+                          duration: const Duration(milliseconds: 1400),
+                          builder: (context, value, child) =>
+                              Transform.translate(
+                                  offset: Offset(900 * value, 0.0),
+                                  child: const Text(
+                                    'Ayuda',
+                                    style:
+                                        TextStyle(color: ColorsApp.grisMedio),
+                                  ))),
                       TweenAnimationBuilder(
-                        curve: Curves.decelerate,
-                        tween: Tween<double>(begin: 1.0, end: 0.0),
-                        duration: const Duration(milliseconds: 1700),
-                        builder: (context, value, child) => Transform.translate(
-                          offset: Offset( 900 * value, 0.0),
-                          child: const Text('Trabaja con nosotros', style: TextStyle(
-                            color: ColorsApp.iconsColor1
-                          ),)))
+                          curve: Curves.decelerate,
+                          tween: Tween<double>(begin: 1.0, end: 0.0),
+                          duration: const Duration(milliseconds: 1700),
+                          builder: (context, value, child) =>
+                              Transform.translate(
+                                  offset: Offset(900 * value, 0.0),
+                                  child: const Text(
+                                    'Trabaja con nosotros',
+                                    style:
+                                        TextStyle(color: ColorsApp.grisMedio),
+                                  )))
                     ],
                   ),
                 )
-                
               ],
             ),
           ),
@@ -287,6 +305,3 @@ class _RegisterViewState extends State<RegisterView> {
     );
   }
 }
-
-
-
