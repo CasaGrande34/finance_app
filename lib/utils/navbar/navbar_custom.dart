@@ -18,7 +18,7 @@ class NavBarCustom extends StatelessWidget {
 
     return Container(
       color: ColorsApp.grisMedio,
-      width: w,
+      width: double.infinity,
       height: h * .09,
       child: _NavBarContent(),
     );
