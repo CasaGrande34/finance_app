@@ -39,14 +39,16 @@ class TablaBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: ColorsApp.negroOscuro,
       ),
       margin: EdgeInsets.all(padding4),
-      height: 665,
-      width: 1200,
+      height: h,
+      width: w,
       child: DataTable(
         columns: const [
           DataColumn(

@@ -59,7 +59,7 @@ class _ListTileExpensesTransactionState
             child: Icon(
               widget.icon,
               color: ColorsApp.negroMediano,
-              size: onHover ? 16 : 14,
+              size: onHover ? 18 : 14,
             ),
           ),
           title: Padding(

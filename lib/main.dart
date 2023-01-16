@@ -1,3 +1,4 @@
+import 'package:finance_app/providers/expansion_state.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
@@ -37,6 +38,7 @@ class AppState extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ExpensesProvider()),
         ChangeNotifierProvider(create: (_) => DataFirestoreProvider()),
+        ChangeNotifierProvider(create: (_) => ExpansionState()),
       ],
       child: const MyApp(),
     );

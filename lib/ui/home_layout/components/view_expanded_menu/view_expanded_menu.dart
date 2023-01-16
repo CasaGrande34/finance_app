@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:marquee/marquee.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 //file addresses
+import '../../../../providers/expansion_state.dart';
 import 'components/text_myexpenses.dart';
 
 import '../../../../utils/add_space.dart';
@@ -16,19 +18,24 @@ import 'components/listtile_viewsidemenu.dart';
 import 'package:finance_app/ui/home_layout/components/view_expanded_menu/components/container_viewsidemenu.dart';
 
 class ViewExpandedMenu extends StatelessWidget {
-  const ViewExpandedMenu({Key? key}) : super(key: key);
+  const ViewExpandedMenu({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final expansionState = Provider.of<ExpansionState>(context);
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 2000),
+      curve: Curves.easeInBack,
       padding: const EdgeInsets.only(top: padding1),
       height: h,
-      width: w < 600 ? 0 : 300,
       color: ColorsApp.grisOscuro,
-      child: const ViewSideMenuBody(),
+      width: expansionState.isExpanded ? 0 : 300,
+      child: expansionState.isExpanded ? Container() : ViewSideMenuBody(),
     );
   }
 }
@@ -99,7 +106,7 @@ class ViewSideMenuBody extends StatelessWidget {
                   ),
                   addHorizontalSpace(6),
                   const Icon(
-                    FontAwesomeIcons.chartLine,
+                    FontAwesomeIcons.bandcamp,
                     color: ColorsApp.amarilloClaro,
                     size: 13,
                   )

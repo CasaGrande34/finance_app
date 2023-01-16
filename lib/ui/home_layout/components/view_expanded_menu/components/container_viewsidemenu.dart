@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 //file addresses
+import '../../../../../providers/expansion_state.dart';
 import '../../../../../utils/colors_app.dart';
 import '../../../../../utils/fonts_custom.dart';
 
@@ -30,6 +32,7 @@ class _ContainerViewSideMenuState extends State<ContainerViewSideMenu>
 
   @override
   Widget build(BuildContext context) {
+    final expansionState = Provider.of<ExpansionState>(context);
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
 
@@ -48,43 +51,50 @@ class _ContainerViewSideMenuState extends State<ContainerViewSideMenu>
         borderRadius: BorderRadius.circular(20),
         child: Stack(
           children: [
-            Container(
-              // margin: const EdgeInsets.symmetric(horizontal: 30),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
-              height: h * .1,
-              width: 280,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                // gradient: const LinearGradient(
+            AnimatedSize(
+              duration: const Duration(milliseconds: 2000),
+              curve: Curves.easeInCirc,
+              child: Container(
+                // margin: const EdgeInsets.symmetric(horizontal: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+                height: expansionState.isExpanded ? 0 : h * .1,
+                width: expansionState.isExpanded ? 0 : 280,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  // gradient: const LinearGradient(
 
-                //   colors: gradientContainerSideMenu,
-                //   begin: Alignment.topLeft,
-                //   end: Alignment.bottomRight
+                  //   colors: gradientContainerSideMenu,
+                  //   begin: Alignment.topLeft,
+                  //   end: Alignment.bottomRight
 
-                // ),
-                color: ColorsApp.negroMediano,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: const Offset(0, 3), // changes position of shadow
+                  // ),
+                  color: ColorsApp.negroMediano,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                //!NO ESTA FUNCIONANDO EL ANIMATEDSWITCHER, VER QUE ONDA
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 1000),
+                  transitionBuilder: ((child, animation) => FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      )),
+                  child: Text(
+                    showDollar
+                        ? widget.dinero.toString()
+                        : widget.typeTransation,
+                    style: slabo.copyWith(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
                   ),
-                ],
-              ),
-              //!NO ESTA FUNCIONANDO EL ANIMATEDSWITCHER, VER QUE ONDA
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 1000),
-                transitionBuilder: ((child, animation) => FadeTransition(
-                      opacity: animation,
-                      child: child,
-                    )),
-                child: Text(
-                  showDollar ? widget.dinero.toString() : widget.typeTransation,
-                  style: slabo.copyWith(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),

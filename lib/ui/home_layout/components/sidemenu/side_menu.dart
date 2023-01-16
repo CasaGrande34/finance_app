@@ -1,9 +1,11 @@
+import 'package:finance_app/providers/expansion_state.dart';
 import 'package:finance_app/utils/fonts_custom.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 //file addresses
 import '../../../../utils/add_space.dart';
@@ -11,66 +13,156 @@ import '../../../../utils/colors_app.dart';
 import '../view_expanded_menu/view_expanded_menu.dart';
 import 'container_selection.dart/container_selection.dart';
 
-class SideMenu extends StatelessWidget {
+class SideMenu extends StatefulWidget {
   const SideMenu({
     super.key,
   });
 
   @override
+  State<SideMenu> createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+  @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return Container(
-      color: ColorsApp.negroOscuro,
-      height: h,
-      width: w > 700 ? 470 : 0,
-      // 🔥 SIDEMENU AND VIEWEXPANDEDMENU
-      child: Stack(
-        children: [
-          Row(children: const [_SideMenuBody(), ViewExpandedMenu()]),
-          Positioned(
-            top: padding2,
-            right: 10,
-            child: Container(
-              height: 30,
-              width: 30,
-              decoration: BoxDecoration(
-                  color: Colors.grey, borderRadius: BorderRadius.circular(5)),
-              child: const Icon(
-                Icons.keyboard_double_arrow_left_outlined,
-                color: ColorsApp.backgroundLight,
-              ),
-            ),
+    return Stack(
+      children: [
+        Row(children: const [_SideMenuBody(), ViewExpandedMenu()]),
+        /* 
+        🔥🔥🔥🔥TODO: ESTE COLLAPSEVIEWEXPANDEDMENU NO VA ACA
+        Lo puse aca por que pense que iba a tratar con un stack diferente pero tranquilamente
+        se puede poner dentro del viewExpandedMenu
+         */
+        const Positioned(
+          top: padding2,
+          right: 10,
+          child: _collapseViewExpandedMenu(),
+        ),
+      ],
+    );
+  }
+}
+
+class _collapseViewExpandedMenu extends StatefulWidget {
+  const _collapseViewExpandedMenu({
+    super.key,
+  });
+
+  @override
+  State<_collapseViewExpandedMenu> createState() =>
+      _collapseViewExpandedMenuState();
+}
+
+class _collapseViewExpandedMenuState extends State<_collapseViewExpandedMenu> {
+  bool isVisible = false;
+  @override
+  Widget build(BuildContext context) {
+    final expansionState = Provider.of<ExpansionState>(context);
+    return InkWell(
+      onTap: expansionState.toggleExpansion,
+      child: MouseRegion(
+        onHover: (value) {
+          setState(() {
+            isVisible = true;
+          });
+        },
+        onExit: (event) {
+          setState(() {
+            isVisible = false;
+          });
+        },
+        child: Container(
+          height: isVisible ? 40 : 35,
+          width: isVisible ? 40 : 35,
+          decoration: BoxDecoration(
+              border: Border.all(color: ColorsApp.negroMediano, width: 1.0),
+              color: isVisible ? Colors.grey : Colors.transparent,
+              borderRadius: BorderRadius.circular(5)),
+          child: Icon(
+            Icons.keyboard_double_arrow_left_outlined,
+            color: isVisible ? ColorsApp.amarilloClaro : ColorsApp.negroOscuro,
+            size: isVisible ? 28 : 24,
           ),
-        ],
+        ),
       ),
     );
   }
 }
 
-class _SideMenuBody extends StatelessWidget {
+class _SideMenuBody extends StatefulWidget {
   const _SideMenuBody({
     super.key,
   });
 
   @override
+  State<_SideMenuBody> createState() => _SideMenuBodyState();
+}
+
+class _SideMenuBodyState extends State<_SideMenuBody> {
+  @override
   Widget build(BuildContext context) {
+    bool isVisible = false;
+
+    final expansionState = Provider.of<ExpansionState>(context);
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-    return SizedBox(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 1000),
+      color: ColorsApp.negroMediano,
       height: h,
       width: 170,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      child: Stack(
         children: [
-          /*	------------------------------------- */
-          addVerticalSpace(20),
-          const _SideMenuLogo(),
-          addVerticalSpace(110),
-          /*	------------------------------------- */
-          const _SideMenuItems()
-          /*	------------------------------------- */
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              /*	------------------------------------- */
+              addVerticalSpace(20),
+              const _SideMenuLogo(),
+              addVerticalSpace(110),
+              /*	------------------------------------- */
+              const _SideMenuItems()
+              /*	------------------------------------- */
+            ],
+          ),
+          Positioned(
+            top: 20,
+            right: 0,
+            child: InkWell(
+              onTap: expansionState.toggleExpansion,
+              child: MouseRegion(
+                onHover: (value) {
+                  setState(() {
+                    isVisible = true;
+                  });
+                },
+                onExit: (event) {
+                  setState(() {
+                    isVisible = false;
+                  });
+                },
+                child: Container(
+                  height: isVisible ? 40 : 35,
+                  width: isVisible ? 40 : 35,
+                  decoration: BoxDecoration(
+                      border:
+                          Border.all(color: ColorsApp.negroMediano, width: 1.0),
+                      color: isVisible ? Colors.grey : Colors.transparent,
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Icon(
+                    Icons.keyboard_double_arrow_left_outlined,
+                    color: isVisible
+                        ? ColorsApp.amarilloClaro
+                        : ColorsApp.negroOscuro,
+                    size: isVisible ? 28 : 24,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
