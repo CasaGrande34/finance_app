@@ -21,7 +21,7 @@ class _MyExpensesTextState extends State<MyExpensesText> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      // mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(
           'Las ultimas transaciones',
@@ -30,7 +30,7 @@ class _MyExpensesTextState extends State<MyExpensesText> {
               fontWeight: FontWeight.bold,
               color: Colors.black.withOpacity(0.7)),
         ),
-        addHorizontalSpace(8),
+        addHorizontalSpace(5),
         LikeButton(
           size: 11,
           circleColor: const CircleColor(start: Colors.black, end: Colors.red),

@@ -1,17 +1,18 @@
-import 'package:finance_app/providers/expansion_state.dart';
-import 'package:finance_app/utils/fonts_custom.dart';
-import 'package:finance_app/utils/padding_custom.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //file addresses
 import '../../../../utils/add_space.dart';
 import '../../../../utils/colors_app.dart';
+import 'package:finance_app/utils/fonts_custom.dart';
+import '../view_expanded_menu/components/collapse_viewexpanded_menu.dart';
 import '../view_expanded_menu/view_expanded_menu.dart';
+import 'package:finance_app/utils/padding_custom.dart';
 import 'container_selection.dart/container_selection.dart';
+import 'package:finance_app/providers/expansion_state.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({
@@ -28,66 +29,11 @@ class _SideMenuState extends State<SideMenu> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return Stack(
-      children: [
-        Row(children: const [_SideMenuBody(), ViewExpandedMenu()]),
-        /* 
-        🔥🔥🔥🔥TODO: ESTE COLLAPSEVIEWEXPANDEDMENU NO VA ACA
-        Lo puse aca por que pense que iba a tratar con un stack diferente pero tranquilamente
-        se puede poner dentro del viewExpandedMenu
-         */
-        const Positioned(
-          top: padding2,
-          right: 10,
-          child: _collapseViewExpandedMenu(),
-        ),
+    return Row(
+      children: const [
+        _SideMenuBody(),
+        ViewExpandedMenu(),
       ],
-    );
-  }
-}
-
-class _collapseViewExpandedMenu extends StatefulWidget {
-  const _collapseViewExpandedMenu({
-    super.key,
-  });
-
-  @override
-  State<_collapseViewExpandedMenu> createState() =>
-      _collapseViewExpandedMenuState();
-}
-
-class _collapseViewExpandedMenuState extends State<_collapseViewExpandedMenu> {
-  bool isVisible = false;
-  @override
-  Widget build(BuildContext context) {
-    final expansionState = Provider.of<ExpansionState>(context);
-    return InkWell(
-      onTap: expansionState.toggleExpansion,
-      child: MouseRegion(
-        onHover: (value) {
-          setState(() {
-            isVisible = true;
-          });
-        },
-        onExit: (event) {
-          setState(() {
-            isVisible = false;
-          });
-        },
-        child: Container(
-          height: isVisible ? 40 : 35,
-          width: isVisible ? 40 : 35,
-          decoration: BoxDecoration(
-              border: Border.all(color: ColorsApp.negroMediano, width: 1.0),
-              color: isVisible ? Colors.grey : Colors.transparent,
-              borderRadius: BorderRadius.circular(5)),
-          child: Icon(
-            Icons.keyboard_double_arrow_left_outlined,
-            color: isVisible ? ColorsApp.amarilloClaro : ColorsApp.negroOscuro,
-            size: isVisible ? 28 : 24,
-          ),
-        ),
-      ),
     );
   }
 }
@@ -105,10 +51,10 @@ class _SideMenuBodyState extends State<_SideMenuBody> {
   @override
   Widget build(BuildContext context) {
     bool isVisible = false;
-
     final expansionState = Provider.of<ExpansionState>(context);
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
+
     return AnimatedContainer(
       duration: const Duration(milliseconds: 1000),
       color: ColorsApp.negroMediano,
@@ -129,40 +75,15 @@ class _SideMenuBodyState extends State<_SideMenuBody> {
             ],
           ),
           Positioned(
-            top: 20,
             right: 0,
-            child: InkWell(
-              onTap: expansionState.toggleExpansion,
-              child: MouseRegion(
-                onHover: (value) {
-                  setState(() {
-                    isVisible = true;
-                  });
-                },
-                onExit: (event) {
-                  setState(() {
-                    isVisible = false;
-                  });
-                },
-                child: Container(
-                  height: isVisible ? 40 : 35,
-                  width: isVisible ? 40 : 35,
-                  decoration: BoxDecoration(
-                      border:
-                          Border.all(color: ColorsApp.negroMediano, width: 1.0),
-                      color: isVisible ? Colors.grey : Colors.transparent,
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Icon(
-                    Icons.keyboard_double_arrow_left_outlined,
-                    color: isVisible
-                        ? ColorsApp.amarilloClaro
-                        : ColorsApp.negroOscuro,
-                    size: isVisible ? 28 : 24,
-                  ),
-                ),
-              ),
-            ),
-          ),
+            top: 120,
+            child: expansionState.isExpanded
+                ? CollapseViewExpandedMenu(
+                    icon: Icons.double_arrow_sharp,
+                    colorContainerIsVisibleTrue: Colors.transparent,
+                  )
+                : SizedBox(),
+          )
         ],
       ),
     );
@@ -220,6 +141,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _SideMenuItem(
           nombredelItem: 'Item 1',
@@ -231,7 +153,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
             });
           },
         ),
-        addVerticalSpace(50),
+        addVerticalSpace(20),
         _SideMenuItem(
           nombredelItem: 'Item 2',
           icon: FontAwesomeIcons.galacticRepublic,
@@ -242,7 +164,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
             });
           },
         ),
-        addVerticalSpace(50),
+        addVerticalSpace(20),
         _SideMenuItem(
           nombredelItem: 'Item 3',
           icon: FontAwesomeIcons.nairaSign,
@@ -253,7 +175,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
             });
           },
         ),
-        addVerticalSpace(50),
+        addVerticalSpace(20),
         _SideMenuItem(
           nombredelItem: 'item 4',
           icon: FontAwesomeIcons.rankingStar,
@@ -264,7 +186,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
             });
           },
         ),
-        addVerticalSpace(90),
+        addVerticalSpace(180),
         _SideMenuItem(
             touched: () {
               setState(() {
