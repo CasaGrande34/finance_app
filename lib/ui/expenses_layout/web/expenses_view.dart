@@ -1,12 +1,8 @@
+import 'package:finance_app/datatables/expenses_datasource.dart';
 import 'package:flutter/material.dart';
 
 //file addresses
-import '../../../utils/colors_app.dart';
 import '../../../utils/navbar/navbar_custom.dart';
-import '../../../utils/fonts_custom.dart';
-import '../components/container_datatable.dart';
-import 'package:finance_app/utils/add_space.dart';
-import 'package:finance_app/utils/padding_custom.dart';
 import '../../home_layout/components/sidemenu/side_menu.dart';
 
 class ExpensesView extends StatelessWidget {
@@ -23,7 +19,10 @@ class ExpensesView extends StatelessWidget {
           const SideMenu(),
           Expanded(
             child: Column(
-              children: [NavBarCustom(), TablaBody()],
+              children: const [
+                NavBarCustom(),
+                TablaBody(),
+              ],
             ),
           )
         ],
@@ -32,99 +31,23 @@ class ExpensesView extends StatelessWidget {
   }
 }
 
-class TablaBody extends StatelessWidget {
-  const TablaBody({
-    super.key,
-  });
+class TablaBody extends StatefulWidget {
+  const TablaBody({super.key});
 
   @override
+  State<TablaBody> createState() => _TablaBodyState();
+}
+
+class _TablaBodyState extends State<TablaBody> {
+  @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: ColorsApp.negroOscuro,
-      ),
-      margin: EdgeInsets.all(padding4),
-      height: h,
-      width: w,
-      child: DataTable(
-        columns: const [
-          DataColumn(
-              label: Text(
-            'Fecha',
-            style: TextStyle(color: Colors.white),
-          )),
-          DataColumn(
-              label: Text(
-            'Monto',
-            style: TextStyle(color: Colors.white),
-          )),
-          DataColumn(
-              label: Text(
-            'Tipo',
-            style: TextStyle(color: Colors.white),
-          )),
-          DataColumn(
-              label: Text(
-            'Subtipo',
-            style: TextStyle(color: Colors.white),
-          )),
-          DataColumn(
-              label: Text(
-            'Categoria',
-            style: TextStyle(color: Colors.white),
-          )),
-        ],
-        rows: [
-          DataRow(
-            cells: [
-              DataCell(Text('01/01/2022')),
-              DataCell(Text('\$100')),
-              DataCell(Text('Depósito')),
-              DataCell(Text('Depósito')),
-              DataCell(Text('Depósito')),
-            ],
-          ),
-          DataRow(
-            cells: [
-              DataCell(Text('01/02/2022')),
-              DataCell(Text('\$50')),
-              DataCell(Text('Retiro')),
-              DataCell(Text('Retiro')),
-              DataCell(Text('Retiro')),
-            ],
-          ),
-          DataRow(
-            cells: [
-              DataCell(Text('01/03/2022')),
-              DataCell(Text('\$20')),
-              DataCell(Text('Pago')),
-              DataCell(Text('Pago')),
-              DataCell(Text('Pago')),
-            ],
-          ),
-          DataRow(
-            cells: [
-              DataCell(Text('01/03/2022')),
-              DataCell(Text('\$20')),
-              DataCell(Text('Pago')),
-              DataCell(Text('Pago')),
-              DataCell(Text('Pago')),
-            ],
-          ),
-          DataRow(
-            cells: [
-              DataCell(Text('01/03/2022')),
-              DataCell(Text('\$20')),
-              DataCell(Text('Pago')),
-              DataCell(Text('Pago')),
-              DataCell(Text('Pago')),
-            ],
-          ),
-        ],
-      ),
-    );
+    return PaginatedDataTable(columns: const [
+      DataColumn(label: Text('Id')),
+      DataColumn(label: Text('Date')),
+      DataColumn(label: Text('Account')),
+      DataColumn(label: Text('Type')),
+      DataColumn(label: Text('Category')),
+      DataColumn(label: Text('Money')),
+    ], source: ExpensesDTS());
   }
 }

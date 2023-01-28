@@ -29,12 +29,7 @@ class _SideMenuState extends State<SideMenu> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return Row(
-      children: const [
-        _SideMenuBody(),
-        ViewExpandedMenu(),
-      ],
-    );
+    return _SideMenuBody();
   }
 }
 
