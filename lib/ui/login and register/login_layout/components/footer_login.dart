@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/colors_app.dart';
+import '../../../../../utils/colors_app.dart';
 
 class FooterLogin extends StatelessWidget {
   const FooterLogin({

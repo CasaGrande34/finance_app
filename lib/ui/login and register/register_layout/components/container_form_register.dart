@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:provider/provider.dart';
-import 'package:finance_app/providers/register_form_provider.dart';
+import 'package:finance_app/providers/auth_form_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 //file addresses
@@ -68,18 +68,19 @@ class BodyContainerForm extends StatefulWidget {
 }
 
 class _BodyContainerFormState extends State<BodyContainerForm> {
+  bool isEmpty = true;
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return ChangeNotifierProvider(
-      create: (context) => LoginFormProvider(),
+      create: (context) => AuthFormProvider(),
       child: Builder(builder: (context) {
-        var loginFormProvider = Provider.of<LoginFormProvider>(
+        var loginFormProvider = Provider.of<AuthFormProvider>(
           context,
         );
         return Form(
-          key: loginFormProvider.formCreateKey,
+          key: loginFormProvider.formKey,
           child: Column(
             children: [
               //AREA DE TEXTFIELDS
@@ -89,7 +90,10 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: padding1),
                 child: TextFormField(
-                  onChanged: (value) => loginFormProvider.name = value,
+                  onChanged: (value) {
+                    loginFormProvider.name = value;
+                    isEmpty = false;
+                  },
                   validator: (value) {
                     //CONDICIONES DEL VALIDADOR
                     if (value == null || value.isEmpty)
@@ -109,7 +113,12 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: padding1),
                 child: TextFormField(
-                  onChanged: (value) => loginFormProvider.email = value,
+                  onChanged: (value) {
+                    loginFormProvider.email = value;
+                    setState(() {
+                      isEmpty = false;
+                    });
+                  },
                   validator: (value) {
                     //CONDICIONES DEL VALIDADOR
                     if (!EmailValidator.validate(value ?? ''))
@@ -127,7 +136,10 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: padding1),
                 child: TextFormField(
-                  onChanged: (value) => loginFormProvider.password = value,
+                  onChanged: (value) {
+                    loginFormProvider.password = value;
+                    isEmpty = false;
+                  },
                   validator: (value) {
                     //CONDICIONES DEL VALIDADOR
                     if (value == null || value.isEmpty)
@@ -145,13 +157,7 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                 ),
               ),
               const Spacer(),
-              // OutlinedButton(
 
-              //   onPressed: () {
-              //     loginFormProvider.validateForm();
-              //   },
-              //   child: const Text('Ingresar'),
-              //   ),
               RoundedLoadingButton(
                   width: w * .14,
                   height: h * .06,
@@ -171,8 +177,8 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
   }
 
   doSomething() {
-    LoginFormProvider form =
-        Provider.of<LoginFormProvider>(context, listen: false);
+    AuthFormProvider form =
+        Provider.of<AuthFormProvider>(context, listen: false);
     form.validateForm();
   }
 }

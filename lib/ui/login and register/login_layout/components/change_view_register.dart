@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/add_space.dart';
-import '../../../../utils/colors_app.dart';
+import '../../../../../utils/add_space.dart';
+import '../../../../../utils/colors_app.dart';
 
 class ChangeViewRegister extends StatelessWidget {
   const ChangeViewRegister({
