@@ -1,44 +1,43 @@
+import 'package:finance_app/utils/add_space.dart';
 import 'package:flutter/material.dart';
 
-//file addresses
-import '../../../utils/colors_app.dart';
+import '../colors_app.dart';
+import '../fonts_custom.dart';
 
-class CustomIconButton extends StatelessWidget {
+class CustomOutlineButton extends StatelessWidget {
   final Function onPressed;
   final String text;
   final Color color;
   final bool isFilled;
   final IconData icon;
 
-  const CustomIconButton({
-    Key? key,
+  const CustomOutlineButton({
+    super.key,
     required this.onPressed,
     required this.text,
     required this.icon,
-    this.color = ColorsApp.amarilloClaro,
     this.isFilled = false,
-  }) : super(key: key);
-
+    this.color = ColorsApp.grisOscuro,
+  });
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: ButtonStyle(
-          shape: MaterialStateProperty.all(const StadiumBorder()),
+          shape: MaterialStateProperty.all(StadiumBorder()),
           backgroundColor: MaterialStateProperty.all(color),
-          overlayColor: MaterialStateProperty.all(ColorsApp.amarilloOscuro)),
+          overlayColor: MaterialStateProperty.all(ColorsApp.amarilloClaro)),
       onPressed: () => onPressed(),
       child: Row(
         children: [
           Icon(
             icon,
-            color: Colors.white,
-            size: 25,
+            color: Colors.black,
           ),
+          addHorizontalSpace(7),
           Text(
             text,
-            style: const TextStyle(
-                color: ColorsApp.amarilloClaro, fontWeight: FontWeight.bold),
-          ),
+            style: roboto.copyWith(fontSize: 15),
+          )
         ],
       ),
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 //dependencies
-import 'package:carousel_slider/carousel_slider.dart';
 
 //file addresses
 import '../../../../../utils/add_space.dart';
@@ -47,21 +46,7 @@ class _LoginViewState extends State<LoginView> {
       SizedBox(
         height: h,
         width: w * .35,
-        child: CarouselSlider(
-            options: CarouselOptions(
-              aspectRatio: 2.0,
-              enlargeCenterPage: true,
-              enlargeStrategy: CenterPageEnlargeStrategy.height,
-              autoPlay: true,
-              autoPlayCurve: Curves.decelerate,
-            ),
-            items: List.generate(
-                divisasBackground.length,
-                (index) => Image.asset(
-                      'assets/divisa_background/${index + 1}.jpg',
-                      fit: BoxFit.cover,
-                      width: w * .35,
-                    ))),
+        child: Placeholder(),
       ),
       Expanded(
         child: Column(

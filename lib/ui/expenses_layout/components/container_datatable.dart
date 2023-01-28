@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 //file addresses
-import '../../../utils/buttons/custom_icon_button.dart';
 import 'package:finance_app/datatables/expenses_datasource.dart';
+
+import '../../../utils/buttons/custom_outline_button.dart';
 
 class ContainerDataTable extends StatefulWidget {
   const ContainerDataTable({
@@ -81,7 +82,7 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
                       },
                       rowsPerPage: _rowPerPage,
                       actions: [
-                        CustomIconButton(
+                        CustomOutlineButton(
                           icon: Icons.add,
                           onPressed: () {
                             //!Register Expense
@@ -92,9 +93,8 @@ class _ContainerDataTableState extends State<ContainerDataTable> {
                                 });
                           },
                           text: 'Crear',
-                          color: Theme.of(context).primaryColor,
                         ),
-                        CustomIconButton(
+                        CustomOutlineButton(
                           icon: Icons.add,
                           onPressed: () {},
                           text: 'Borrar',

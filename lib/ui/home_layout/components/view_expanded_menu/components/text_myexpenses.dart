@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 //dependencies
 
 //file addresses
-import 'package:like_button/like_button.dart';
 import 'package:finance_app/utils/add_space.dart';
 import '../../../../../utils/fonts_custom.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,35 +30,6 @@ class _MyExpensesTextState extends State<MyExpensesText> {
               color: Colors.black.withOpacity(0.7)),
         ),
         addHorizontalSpace(5),
-        LikeButton(
-          size: 11,
-          circleColor: const CircleColor(start: Colors.black, end: Colors.red),
-          likeBuilder: (isLiked) {
-            return Icon(
-              FontAwesomeIcons.sackDollar,
-              color: isLiked ? Colors.red : Colors.black,
-              size: 16,
-            );
-          },
-          likeCount: widget.likeCount,
-          countBuilder: (likeCount, isLiked, text) {
-            var color = isLiked ? Colors.red : Colors.black;
-            Widget result;
-            if (likeCount == 0) {
-              result = Text(
-                'hola',
-                style: TextStyle(color: color),
-              );
-            } else {
-              result = Text(
-                text,
-                style: TextStyle(color: color),
-              );
-            }
-            return result;
-          },
-          likeCountPadding: const EdgeInsets.only(left: 5),
-        )
       ],
     );
   }

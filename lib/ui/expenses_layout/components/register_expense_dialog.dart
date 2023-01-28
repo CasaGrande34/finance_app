@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 //file addresses
+import '../../../utils/buttons/custom_outline_button.dart';
 import '../../../utils/title_register.dart';
 import 'package:finance_app/utils/add_space.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 import 'package:finance_app/utils/inputs/textfield_custom.dart';
-import 'package:finance_app/utils/buttons/custom_icon_button.dart';
 
 class RegisterExpenseDialog extends StatefulWidget {
   const RegisterExpenseDialog({
@@ -68,7 +68,7 @@ class _RegisterExpenseDialogState extends State<RegisterExpenseDialog> {
                 child: const Text('Cargar Orden'),
               ),
               addHorizontalSpace(padding2),
-              CustomIconButton(
+              CustomOutlineButton(
                   onPressed: () {
                     Navigator.pop(context);
                     // print('Data deleted');
