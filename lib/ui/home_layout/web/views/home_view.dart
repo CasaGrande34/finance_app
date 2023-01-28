@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../components/dashboard/dashboard.dart';
-import '../../components/sidemenu/side_menu.dart';
-import '../../components/view_expanded_menu/view_expanded_menu.dart';
-
 //dependencies
 
 //file addresses
+import '../../components/sidemenu/side_menu.dart';
+import '../../components/dashboard/dashboard.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -18,7 +16,7 @@ class HomeView extends StatelessWidget {
 
     return Scaffold(
       body: Row(
-        children: const [SideMenu(), Expanded(child: DashboardCustom())],
+        children: const [SideMenu(), Expanded(child: DashBoardHome())],
       ),
     );
   }

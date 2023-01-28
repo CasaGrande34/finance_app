@@ -11,7 +11,7 @@ class ExpansionState with ChangeNotifier {
 
   bool get isExpanded => _isExpanded;
 
-  void toggleExpansion() {
+   toggleExpansion() {
     _isExpanded = !_isExpanded;
     notifyListeners();
   }
