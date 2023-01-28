@@ -1,3 +1,4 @@
+import 'package:finance_app/ui/login%20and%20register/login_layout/components/components.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
@@ -43,13 +44,7 @@ class _LoginViewState extends State<LoginView> {
         body: Column(
       children: [
         addVerticalSpace(70),
-        TweenAnimationBuilder(
-            curve: Curves.easeInOutCirc,
-            duration: const Duration(milliseconds: 2000),
-            tween: Tween<double>(begin: 1.0, end: 0.0),
-            builder: (context, value, child) => Transform.translate(
-                offset: Offset(0.0, -900 * value),
-                child: Text('CASAGRANDE', style: satisfy))),
+        BienvenidaTitle(),
         addVerticalSpace(50),
         //FORM CONTAINER
         TweenAnimationBuilder(
@@ -150,105 +145,9 @@ class _LoginViewState extends State<LoginView> {
           ),
         ),
         addVerticalSpace(padding2),
-        TweenAnimationBuilder(
-          curve: Curves.easeOutCirc,
-          duration: const Duration(milliseconds: 2500),
-          tween: Tween<double>(begin: 1.0, end: 0),
-          builder: (context, value, child) => Transform.translate(
-            offset: Offset(900 * value, 0),
-            child: SizedBox(
-              width: w * .3,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Aun no tienes cuenta ?',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  addHorizontalSpace(6),
-                  const Text(
-                    'Registrate',
-                    style: TextStyle(
-                        color: ColorsApp.amarilloOscuro,
-                        fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
+        ChangeViewRegister(),
         const Spacer(),
-        SizedBox(
-          height: h * .06,
-          width: w,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TweenAnimationBuilder(
-                  curve: Curves.easeInOutExpo,
-                  tween: Tween<double>(begin: 1.0, end: 0.0),
-                  duration: const Duration(milliseconds: 600),
-                  builder: (context, value, child) => Transform.translate(
-                      offset: Offset(900 * value, 0.0),
-                      child: const Text(
-                        'Sobre nosotros',
-                        style: TextStyle(color: ColorsApp.grisMedio),
-                      ))),
-              TweenAnimationBuilder(
-                  curve: Curves.easeInOutExpo,
-                  tween: Tween<double>(begin: 1.0, end: 0.0),
-                  duration: const Duration(milliseconds: 800),
-                  builder: (context, value, child) => Transform.translate(
-                      offset: Offset(900 * value, 0.0),
-                      child: const Text(
-                        'Contacto',
-                        style: TextStyle(color: ColorsApp.grisMedio),
-                      ))),
-              TweenAnimationBuilder(
-                  curve: Curves.easeInOutExpo,
-                  tween: Tween<double>(begin: 1.0, end: 0.0),
-                  duration: const Duration(milliseconds: 1000),
-                  builder: (context, value, child) => Transform.translate(
-                      offset: Offset(900 * value, 0.0),
-                      child: const Text(
-                        'Politicas y privacidad',
-                        style: TextStyle(color: ColorsApp.grisMedio),
-                      ))),
-              TweenAnimationBuilder(
-                  curve: Curves.easeInOutExpo,
-                  tween: Tween<double>(begin: 1.0, end: 0.0),
-                  duration: const Duration(milliseconds: 1200),
-                  builder: (context, value, child) => Transform.translate(
-                      offset: Offset(900 * value, 0.0),
-                      child: const Text(
-                        'NewsLetter',
-                        style: TextStyle(color: ColorsApp.grisMedio),
-                      ))),
-              TweenAnimationBuilder(
-                  curve: Curves.easeInOutExpo,
-                  tween: Tween<double>(begin: 1.0, end: 0.0),
-                  duration: const Duration(milliseconds: 1400),
-                  builder: (context, value, child) => Transform.translate(
-                      offset: Offset(900 * value, 0.0),
-                      child: const Text(
-                        'Ayuda',
-                        style: TextStyle(color: ColorsApp.grisMedio),
-                      ))),
-              TweenAnimationBuilder(
-                curve: Curves.bounceInOut,
-                tween: Tween<double>(begin: 1.0, end: 0.0),
-                duration: const Duration(milliseconds: 1700),
-                builder: (context, value, child) => Transform.translate(
-                  offset: Offset(900 * value, 0.0),
-                  child: const Text(
-                    'Trabaja con nosotros',
-                    style: TextStyle(color: ColorsApp.grisMedio),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        FooterLogin()
       ],
     ));
   }
