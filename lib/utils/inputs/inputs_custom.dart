@@ -11,23 +11,18 @@ class CustomInputs {
   }) =>
       InputDecoration(
         contentPadding: const EdgeInsets.all(8.0),
-        fillColor: Colors.white,
-
-        // counterText: '1/2'
         hoverColor: ColorsApp.amarilloOscuro,
         labelText: labelText,
-        hintText: hintText,
         labelStyle: const TextStyle(
           color: ColorsApp.amarilloClaro,
           fontSize: 15,
         ),
-        hintStyle: const TextStyle(fontSize: 13),
+        hintText: hintText,
+        hintStyle: const TextStyle(fontSize: 13, color: Colors.deepPurple),
         floatingLabelStyle: TextStyle(
           color: Colors.purpleAccent,
           fontSize: 18,
         ),
-
-        // suffix: icon,
         suffixIconColor: ColorsApp.amarilloClaro,
         suffixIcon: icon,
 

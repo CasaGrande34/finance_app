@@ -1,9 +1,8 @@
 import 'dart:async';
-
-import 'package:email_validator/email_validator.dart';
-import 'package:finance_app/providers/auth_form_provider.dart';
 import 'package:flutter/material.dart';
 //dependencies
+import 'package:email_validator/email_validator.dart';
+import 'package:finance_app/providers/auth_form_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
