@@ -13,17 +13,13 @@ class DashBoardHome extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return SizedBox(
-      height: h,
-      width: w,
-      child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            NavBarCustom(),
-            DashboardCustomBody(),
-          ],
-        ),
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          NavBarCustom(),
+          DashboardCustomBody(),
+        ],
       ),
     );
   }
@@ -77,10 +73,17 @@ class FiladeResumenes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
-        Resumen(),
-        Resumen(),
-        Resumen(),
+      children: [
+        const Resumen(),
+        const Resumen(),
+        const Resumen(),
+        Container(
+          height: 200,
+          width: 450,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: ColorsApp.grisOscuro),
+        )
       ],
     );
   }
@@ -96,8 +99,8 @@ class Resumen extends StatelessWidget {
     // final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     return Container(
-      height: 250,
-      width: w * .2,
+      height: 200,
+      width: w * .16,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), color: ColorsApp.grisOscuro),
     );

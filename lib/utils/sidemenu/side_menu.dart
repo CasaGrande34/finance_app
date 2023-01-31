@@ -67,21 +67,36 @@ class _SideMenuLogo extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
 
     return Container(
-      padding: EdgeInsets.all(5),
+      // padding: EdgeInsets.all(5),
       height: 150,
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(padding3),
         border: Border.all(
             color: ColorsApp.amarilloClaro.withOpacity(0.5), width: 0.8),
       ),
       width: double.infinity,
-      child: Opacity(
-        opacity: 0.5,
-        child: Image.asset(
-          'assets/background/texture_dark_sidemenu.png',
-          fit: BoxFit.cover,
-          width: 500,
-        ),
+      child: Stack(
+        children: [
+          Opacity(
+            opacity: 0.5,
+            child: Center(
+              child: Image.asset(
+                'assets/background/texture_dark_sidemenu.png',
+                fit: BoxFit.cover,
+                width: 300,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 25,
+            left: 37,
+            child: Image.asset(
+              'assets/logo/logo_echavarria.png',
+              fit: BoxFit.contain,
+            ),
+          )
+        ],
       ),
     );
   }
@@ -124,7 +139,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
       children: [
         _SideMenuItem(
           nombredelItem: 'Resumen',
-          icon: FontAwesomeIcons.appStoreIos,
+          icon: Icons.wallet,
           active: selected[0],
           touched: () {
             setState(() {
@@ -135,7 +150,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
         addVerticalSpace(20),
         _SideMenuItem(
           nombredelItem: 'Incomes',
-          icon: FontAwesomeIcons.galacticRepublic,
+          icon: Icons.trending_up,
           active: selected[1],
           touched: () {
             setState(() {
@@ -146,7 +161,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
         addVerticalSpace(20),
         _SideMenuItem(
           nombredelItem: 'Expenses',
-          icon: FontAwesomeIcons.nairaSign,
+          icon: Icons.trending_down,
           active: selected[2],
           touched: () {
             setState(() {
@@ -157,7 +172,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
         addVerticalSpace(20),
         _SideMenuItem(
           nombredelItem: 'Configuration',
-          icon: FontAwesomeIcons.rankingStar,
+          icon: Icons.ballot_rounded,
           active: selected[3],
           touched: () {
             setState(() {
@@ -223,7 +238,7 @@ class _SideMenuItemState extends State<_SideMenuItem> {
             child: Icon(
               widget.icon,
               color: widget.active ? Colors.black : ColorsApp.grisOscuro,
-              size: 17,
+              size: widget.active ? 24 : 17,
             ),
           ),
           addHorizontalSpace(8),
