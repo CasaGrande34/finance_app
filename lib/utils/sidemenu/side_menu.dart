@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 
 //dependencies
-import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //file addresses
-import '../../../../utils/add_space.dart';
-import '../../../../utils/colors_app.dart';
+import '../add_space.dart';
+import '../colors_app.dart';
 import 'package:finance_app/utils/fonts_custom.dart';
-import '../view_expanded_menu/components/collapse_viewexpanded_menu.dart';
-import '../view_expanded_menu/view_expanded_menu.dart';
-import 'package:finance_app/utils/padding_custom.dart';
+import '../padding_custom.dart';
 import 'container_selection.dart/container_selection.dart';
-import 'package:finance_app/providers/expansion_state.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({
@@ -26,17 +22,12 @@ class SideMenu extends StatefulWidget {
 class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
-
-    return _SideMenuBody();
+    return const _SideMenuBody();
   }
 }
 
 class _SideMenuBody extends StatefulWidget {
-  const _SideMenuBody({
-    super.key,
-  });
+  const _SideMenuBody();
 
   @override
   State<_SideMenuBody> createState() => _SideMenuBodyState();
@@ -45,8 +36,7 @@ class _SideMenuBody extends StatefulWidget {
 class _SideMenuBodyState extends State<_SideMenuBody> {
   @override
   Widget build(BuildContext context) {
-    bool isVisible = false;
-    final expansionState = Provider.of<ExpansionState>(context);
+    // bool isVisible = false;
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
 
@@ -55,30 +45,13 @@ class _SideMenuBodyState extends State<_SideMenuBody> {
       color: ColorsApp.negroMediano,
       height: h,
       width: 170,
-      child: Stack(
+      child: Column(
         children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              /*	------------------------------------- */
-              addVerticalSpace(20),
-              const _SideMenuLogo(),
-              addVerticalSpace(110),
-              /*	------------------------------------- */
-              const _SideMenuItems()
-              /*	------------------------------------- */
-            ],
-          ),
-          Positioned(
-            right: 0,
-            top: 120,
-            child: expansionState.isExpanded
-                ? CollapseViewExpandedMenu(
-                    icon: Icons.double_arrow_sharp,
-                    colorContainerIsVisibleTrue: Colors.transparent,
-                  )
-                : SizedBox(),
-          )
+          /*	------------------------------------- */
+          const _SideMenuLogo(),
+          addVerticalSpace(100),
+          const _SideMenuItems()
+          /*	------------------------------------- */
         ],
       ),
     );
@@ -93,17 +66,29 @@ class _SideMenuLogo extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return Image.asset(
-      'assets/logo/logo_casagrande.png',
-      height: h * .12,
-      width: w,
-      fit: BoxFit.contain,
+    return Container(
+      padding: EdgeInsets.all(5),
+      height: 150,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(padding3),
+        border: Border.all(
+            color: ColorsApp.amarilloClaro.withOpacity(0.5), width: 0.8),
+      ),
+      width: double.infinity,
+      child: Opacity(
+        opacity: 0.5,
+        child: Image.asset(
+          'assets/background/texture_dark_sidemenu.png',
+          fit: BoxFit.cover,
+          width: 500,
+        ),
+      ),
     );
   }
 }
 
 class _SideMenuItems extends StatefulWidget {
-  const _SideMenuItems({super.key});
+  const _SideMenuItems();
 
   @override
   State<_SideMenuItems> createState() => _SideMenuItemsState();
@@ -136,10 +121,9 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _SideMenuItem(
-          nombredelItem: 'Item 1',
+          nombredelItem: 'Resumen',
           icon: FontAwesomeIcons.appStoreIos,
           active: selected[0],
           touched: () {
@@ -150,7 +134,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
         ),
         addVerticalSpace(20),
         _SideMenuItem(
-          nombredelItem: 'Item 2',
+          nombredelItem: 'Incomes',
           icon: FontAwesomeIcons.galacticRepublic,
           active: selected[1],
           touched: () {
@@ -161,7 +145,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
         ),
         addVerticalSpace(20),
         _SideMenuItem(
-          nombredelItem: 'Item 3',
+          nombredelItem: 'Expenses',
           icon: FontAwesomeIcons.nairaSign,
           active: selected[2],
           touched: () {
@@ -172,7 +156,7 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
         ),
         addVerticalSpace(20),
         _SideMenuItem(
-          nombredelItem: 'item 4',
+          nombredelItem: 'Configuration',
           icon: FontAwesomeIcons.rankingStar,
           active: selected[3],
           touched: () {
@@ -181,7 +165,12 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
             });
           },
         ),
-        addVerticalSpace(180),
+        addVerticalSpace(170),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Divider(),
+        ),
+        addVerticalSpace(5),
         _SideMenuItem(
             touched: () {
               setState(() {
@@ -203,8 +192,7 @@ class _SideMenuItem extends StatefulWidget {
   final String nombredelItem;
 
   const _SideMenuItem(
-      {super.key,
-      required this.touched,
+      {required this.touched,
       required this.active,
       required this.icon,
       required this.nombredelItem});
@@ -219,12 +207,13 @@ class _SideMenuItemState extends State<_SideMenuItem> {
     return InkWell(
       onTap: () => widget.touched(),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SelectionBorder(
             active: widget.active,
             radius: const BorderRadius.only(
-                topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+              topRight: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
           ),
           const Spacer(),
           CircleAvatar(
@@ -233,24 +222,23 @@ class _SideMenuItemState extends State<_SideMenuItem> {
                 widget.active ? ColorsApp.amarilloClaro : Colors.transparent,
             child: Icon(
               widget.icon,
-              color: widget.active ? Colors.black : Colors.grey,
+              color: widget.active ? Colors.black : ColorsApp.grisOscuro,
               size: 17,
             ),
           ),
           addHorizontalSpace(8),
-          Text(
-            widget.nombredelItem,
-            style: slabo.copyWith(
-              fontSize: 17,
+          SizedBox(
+            width: 70,
+            child: Text(
+              widget.nombredelItem,
+              style: slabo.copyWith(
+                  fontSize: 17,
+                  color:
+                      widget.active ? ColorsApp.blanco : ColorsApp.grisOscuro,
+                  overflow: TextOverflow.ellipsis),
             ),
           ),
           const Spacer(),
-          SelectionBorder(
-            active: widget.active,
-            radius: const BorderRadius.only(
-                topRight: Radius.circular(20),
-                bottomRight: Radius.circular(20)),
-          ),
         ],
       ),
     );

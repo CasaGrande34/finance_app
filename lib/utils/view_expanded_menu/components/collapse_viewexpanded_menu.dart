@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../providers/expansion_state.dart';
-import '../../../../../utils/colors_app.dart';
+import '../../../providers/expansion_state.dart';
+import '../../colors_app.dart';
 
 class CollapseViewExpandedMenu extends StatefulWidget {
   final Color? borderColor;

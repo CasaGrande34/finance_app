@@ -23,7 +23,7 @@ class CustomOutlineButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: ButtonStyle(
-          shape: MaterialStateProperty.all(StadiumBorder()),
+          shape: MaterialStateProperty.all(const StadiumBorder()),
           backgroundColor: MaterialStateProperty.all(color),
           overlayColor: MaterialStateProperty.all(ColorsApp.amarilloClaro)),
       onPressed: () => onPressed(),

@@ -21,7 +21,7 @@ class IconNotificationCustom extends StatelessWidget {
         SizedBox(
           height: h,
           width: w * .03,
-          child: Icon(
+          child: const Icon(
             FontAwesomeIcons.boxArchive,
             color: ColorsApp.grisClaro,
           ),

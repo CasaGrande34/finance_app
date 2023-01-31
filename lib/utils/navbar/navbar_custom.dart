@@ -12,10 +12,10 @@ class NavBarCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
+    // double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return Container(
+    return SizedBox(
       // color: ColorsApp.grisMedio,
       width: double.infinity,
       height: h * .09,
@@ -30,7 +30,7 @@ class _NavBarContent extends StatelessWidget {
     return Row(
       children: [
         addHorizontalSpace(padding3),
-        Icon(
+        const Icon(
           FontAwesomeIcons.bars,
           color: ColorsApp.grisOscuro,
         ),

@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../utils/colors_app.dart';
 import '../../../utils/navbar/navbar_custom.dart';
 import 'package:finance_app/utils/padding_custom.dart';
-import '../../home_layout/components/sidemenu/side_menu.dart';
+import '../../../utils/sidemenu/side_menu.dart';
 import 'package:finance_app/datatables/expenses_datasource.dart';
 import 'package:finance_app/utils/buttons/custom_outline_button.dart';
 
@@ -16,8 +16,8 @@ class ExpensesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
+    // final h = MediaQuery.of(context).size.height;
+    // final w = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 131, 131, 131),
       body: Row(
@@ -25,11 +25,11 @@ class ExpensesView extends StatelessWidget {
           const SideMenu(),
           Expanded(
             child: ListView(
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               children: [
-                NavBarCustom(),
+                const NavBarCustom(),
                 addVerticalSpace(padding4),
-                TablaBody(),
+                const TablaBody(),
               ],
             ),
           )

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //file addresses
-import '../../../../../utils/add_space.dart';
-import '../../../../../utils/colors_app.dart';
-import '../../../../../utils/fonts_custom.dart';
+import '../../add_space.dart';
+import '../../colors_app.dart';
+import '../../fonts_custom.dart';
 
 class ListTileExpensesTransaction extends StatefulWidget {
   final IconData icon;

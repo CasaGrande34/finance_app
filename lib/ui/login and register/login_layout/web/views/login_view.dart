@@ -62,7 +62,7 @@ class _LoginViewState extends State<LoginView> {
               child: Container(
                 width: w,
                 height: h,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.black,
                   gradient: RadialGradient(
                     colors: [Colors.transparent, ColorsApp.negroOscuro],

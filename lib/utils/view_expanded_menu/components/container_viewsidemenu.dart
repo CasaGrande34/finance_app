@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //file addresses
-import '../../../../../providers/expansion_state.dart';
-import '../../../../../utils/colors_app.dart';
-import '../../../../../utils/fonts_custom.dart';
+import '../../../providers/expansion_state.dart';
+import '../../colors_app.dart';
+import '../../fonts_custom.dart';
 
 class ContainerViewSideMenu extends StatefulWidget {
   final String typeTransation;
@@ -34,7 +34,7 @@ class _ContainerViewSideMenuState extends State<ContainerViewSideMenu>
   Widget build(BuildContext context) {
     final expansionState = Provider.of<ExpansionState>(context);
     double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
+    // double w = MediaQuery.of(context).size.width;
 
     return MouseRegion(
       onEnter: (event) {

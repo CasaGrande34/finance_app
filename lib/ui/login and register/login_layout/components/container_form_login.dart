@@ -53,9 +53,7 @@ class _ContainerFormLoginState extends State<ContainerFormLogin> {
 }
 
 class _BodyContainerFormLogin extends StatefulWidget {
-  const _BodyContainerFormLogin({
-    super.key,
-  });
+  const _BodyContainerFormLogin();
 
   @override
   State<_BodyContainerFormLogin> createState() =>

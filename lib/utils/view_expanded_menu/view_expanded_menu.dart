@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
 //dependencies
-import 'package:marquee/marquee.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 //file addresses
-import '../../../../providers/expansion_state.dart';
+import '../../providers/expansion_state.dart';
 import 'components/collapse_viewexpanded_menu.dart';
 import 'components/text_myexpenses.dart';
 
-import '../../../../utils/add_space.dart';
-import '../../../../utils/colors_app.dart';
-import '../../../../utils/fonts_custom.dart';
-import '../../../../utils/padding_custom.dart';
+import '../add_space.dart';
+import '../colors_app.dart';
+import '../fonts_custom.dart';
+import '../padding_custom.dart';
 
 import 'components/listtile_viewsidemenu.dart';
-import 'package:finance_app/ui/home_layout/components/view_expanded_menu/components/container_viewsidemenu.dart';
+import 'package:finance_app/utils/view_expanded_menu/components/container_viewsidemenu.dart';
+
+/* 
+WIDGET DESHABILITADO PERO PUEDO USARLO PARA COPIARLO PARA OTRAS COSAS 🔥🔥🔥
+ */
 
 class ViewExpandedMenu extends StatelessWidget {
   const ViewExpandedMenu({
@@ -26,7 +29,7 @@ class ViewExpandedMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final expansionState = Provider.of<ExpansionState>(context);
-    double w = MediaQuery.of(context).size.width;
+    // double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
     return AnimatedContainer(
@@ -47,9 +50,7 @@ class ViewExpandedMenu extends StatelessWidget {
 }
 
 class _ViewSideMenuBody extends StatefulWidget {
-  const _ViewSideMenuBody({
-    super.key,
-  });
+  const _ViewSideMenuBody();
 
   @override
   State<_ViewSideMenuBody> createState() => _ViewSideMenuBodyState();
@@ -61,18 +62,18 @@ class _ViewSideMenuBodyState extends State<_ViewSideMenuBody> {
   final opacity = 1.0;
   @override
   Widget build(BuildContext context) {
-    final expansionState = Provider.of<ExpansionState>(context);
-    double w = MediaQuery.of(context).size.width;
+    // final expansionState = Provider.of<ExpansionState>(context);
+    // double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
     return SingleChildScrollView(
       child: Column(
         children: [
-          _BalanceMoney(),
+          const _BalanceMoney(),
           addVerticalSpace(5),
           _MarqueeCotization(h: h),
           addVerticalSpace(padding3),
-          _MoneyBank(),
+          const _MoneyBank(),
           addVerticalSpace(padding3),
           const ContainerViewSideMenu(
             typeTransation: 'Incomes',
@@ -114,9 +115,7 @@ class _ViewSideMenuBodyState extends State<_ViewSideMenuBody> {
 }
 
 class _BalanceMoney extends StatelessWidget {
-  const _BalanceMoney({
-    super.key,
-  });
+  const _BalanceMoney();
 
   @override
   Widget build(BuildContext context) {
@@ -139,8 +138,8 @@ class _BalanceMoney extends StatelessWidget {
                   FontAwesomeIcons.circleDollarToSlot,
                   color: ColorsApp.amarilloClaro,
                 ),
-                Spacer(),
-                CollapseViewExpandedMenu(
+                const Spacer(),
+                const CollapseViewExpandedMenu(
                   borderColor: ColorsApp.negroMediano,
                 ),
               ],
@@ -158,7 +157,6 @@ class _BalanceMoney extends StatelessWidget {
 
 class _MarqueeCotization extends StatelessWidget {
   const _MarqueeCotization({
-    super.key,
     required this.h,
   });
 
@@ -180,9 +178,7 @@ class _MarqueeCotization extends StatelessWidget {
 }
 
 class _MoneyBank extends StatelessWidget {
-  const _MoneyBank({
-    super.key,
-  });
+  const _MoneyBank();
 
   @override
   Widget build(BuildContext context) {

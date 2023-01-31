@@ -19,13 +19,12 @@ class CustomInputs {
         ),
         hintText: hintText,
         hintStyle: const TextStyle(fontSize: 13, color: Colors.deepPurple),
-        floatingLabelStyle: TextStyle(
+        floatingLabelStyle: const TextStyle(
           color: Colors.purpleAccent,
           fontSize: 18,
         ),
         suffixIconColor: ColorsApp.amarilloClaro,
         suffixIcon: icon,
-
         enabledBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(6)),
             borderSide: BorderSide(color: ColorsApp.amarilloOscuro, width: 1)),

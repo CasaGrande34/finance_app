@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 
 //file addresses
 import 'package:finance_app/utils/add_space.dart';
-import '../../../../../utils/fonts_custom.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../fonts_custom.dart';
 
 class MyExpensesText extends StatefulWidget {
   final int likeCount = 999;

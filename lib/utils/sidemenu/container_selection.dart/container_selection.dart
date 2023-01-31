@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/colors_app.dart';
+import '../../colors_app.dart';
 
 class SelectionBorder extends StatelessWidget {
   final BorderRadius radius;
@@ -14,14 +14,14 @@ class SelectionBorder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
+    // double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
     return Container(
       height: h * .05,
-      width: 3,
+      width: 5,
       decoration: BoxDecoration(
-          color: active ? ColorsApp.amarilloOscuro : Colors.transparent,
+          color: active ? ColorsApp.amarilloOscuro : Colors.black,
           borderRadius: radius),
     );
   }

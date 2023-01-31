@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 //file addresses
 import '../../../../utils/colors_app.dart';
-import '../../../../utils/months.dart';
-import '../../../../utils/fonts_custom.dart';
 import '../../../../utils/navbar/navbar_custom.dart';
 
 class DashBoardHome extends StatelessWidget {
@@ -36,8 +34,8 @@ class DashboardCustomBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
+    // double w = MediaQuery.of(context).size.width;
+    // double h = MediaQuery.of(context).size.height;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
@@ -45,9 +43,9 @@ class DashboardCustomBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         // mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          FiladeResumenes(),
+          const FiladeResumenes(),
           addVerticalSpace(20),
-          GraficDashboardMenu()
+          const GraficDashboardMenu()
         ],
       ),
     );
@@ -79,7 +77,7 @@ class FiladeResumenes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: const [
         Resumen(),
         Resumen(),
         Resumen(),
@@ -95,7 +93,7 @@ class Resumen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
+    // final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     return Container(
       height: 250,

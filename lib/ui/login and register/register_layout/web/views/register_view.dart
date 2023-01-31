@@ -51,7 +51,7 @@ class _RegisterViewState extends State<RegisterView> {
               child: SizedBox(
                 height: h,
                 width: w * .35,
-                child: Placeholder(),
+                child: const Placeholder(),
               ),
             ),
           ),

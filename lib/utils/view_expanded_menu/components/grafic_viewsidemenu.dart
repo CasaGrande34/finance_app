@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 //file addresses
-import '../../../../../models/model_example1.dart';
+import '../../../models/model_example1.dart';
 
 class GraficViewSideMenu extends StatefulWidget {
   const GraficViewSideMenu({Key? key}) : super(key: key);
