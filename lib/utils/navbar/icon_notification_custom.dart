@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../colors_app.dart';
+import '../styles_custom.dart';
 //file addresses
 
 class IconNotificationCustom extends StatelessWidget {
@@ -23,7 +23,7 @@ class IconNotificationCustom extends StatelessWidget {
           width: w * .03,
           child: const Icon(
             FontAwesomeIcons.boxArchive,
-            color: ColorsApp.grisClaro,
+            color: Styles.grisClaro,
           ),
         ),
         Positioned(top: 10, left: 1, child: _PointNotification())
@@ -37,7 +37,7 @@ class _PointNotification extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CircleAvatar(
       radius: 7,
-      backgroundColor: ColorsApp.amarilloClaro,
+      backgroundColor: Styles.amarilloClaro,
       child: Text(
         '1',
         style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),

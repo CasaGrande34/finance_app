@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/add_space.dart';
-import '../../../../../utils/colors_app.dart';
+import '../../../../utils/styles_custom.dart';
 
 class ChangeViewRegister extends StatelessWidget {
   const ChangeViewRegister({
@@ -31,8 +31,7 @@ class ChangeViewRegister extends StatelessWidget {
               const Text(
                 'Registrate',
                 style: TextStyle(
-                    color: ColorsApp.amarilloOscuro,
-                    fontWeight: FontWeight.bold),
+                    color: Styles.amarilloOscuro, fontWeight: FontWeight.bold),
               )
             ],
           ),

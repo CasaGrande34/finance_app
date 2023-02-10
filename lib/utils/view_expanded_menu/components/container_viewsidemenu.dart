@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 //file addresses
 import '../../../providers/expansion_state.dart';
-import '../../colors_app.dart';
+import '../../styles_custom.dart';
 import '../../fonts_custom.dart';
 
 class ContainerViewSideMenu extends StatefulWidget {
@@ -69,7 +69,7 @@ class _ContainerViewSideMenuState extends State<ContainerViewSideMenu>
                   //   end: Alignment.bottomRight
 
                   // ),
-                  color: ColorsApp.negroMediano,
+                  color: Styles.negroMediano,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.5),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 //dependencies
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //file addresses
 import '../add_space.dart';
-import '../colors_app.dart';
+import '../styles_custom.dart';
 import 'package:finance_app/utils/fonts_custom.dart';
 import '../padding_custom.dart';
 import 'container_selection.dart/container_selection.dart';
@@ -38,11 +38,11 @@ class _SideMenuBodyState extends State<_SideMenuBody> {
   Widget build(BuildContext context) {
     // bool isVisible = false;
     final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
+    // final w = MediaQuery.of(context).size.width;
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 1000),
-      color: ColorsApp.negroMediano,
+      color: Styles.negroMediano,
       height: h,
       width: 170,
       child: Column(
@@ -63,8 +63,8 @@ class _SideMenuLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
+    // double w = MediaQuery.of(context).size.width;
+    // double h = MediaQuery.of(context).size.height;
 
     return Container(
       // padding: EdgeInsets.all(5),
@@ -73,7 +73,7 @@ class _SideMenuLogo extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(padding3),
         border: Border.all(
-            color: ColorsApp.amarilloClaro.withOpacity(0.5), width: 0.8),
+            color: Styles.amarilloClaro.withOpacity(0.5), width: 0.8),
       ),
       width: double.infinity,
       child: Stack(
@@ -181,8 +181,8 @@ class _SideMenuItemsState extends State<_SideMenuItems> {
           },
         ),
         addVerticalSpace(170),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8.0),
           child: Divider(),
         ),
         addVerticalSpace(5),
@@ -233,11 +233,12 @@ class _SideMenuItemState extends State<_SideMenuItem> {
           const Spacer(),
           CircleAvatar(
             /*	------------------------------------- */
+
             backgroundColor:
-                widget.active ? ColorsApp.amarilloClaro : Colors.transparent,
+                widget.active ? Styles.amarilloClaro : Colors.transparent,
             child: Icon(
               widget.icon,
-              color: widget.active ? Colors.black : ColorsApp.grisOscuro,
+              color: widget.active ? Colors.black : Styles.grisOscuro,
               size: widget.active ? 24 : 17,
             ),
           ),
@@ -248,8 +249,7 @@ class _SideMenuItemState extends State<_SideMenuItem> {
               widget.nombredelItem,
               style: slabo.copyWith(
                   fontSize: 17,
-                  color:
-                      widget.active ? ColorsApp.blanco : ColorsApp.grisOscuro,
+                  color: widget.active ? Styles.blanco : Styles.grisOscuro,
                   overflow: TextOverflow.ellipsis),
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/colors_app.dart';
+import '../../../../utils/styles_custom.dart';
 
 class FooterLogin extends StatelessWidget {
   const FooterLogin({
@@ -25,7 +25,7 @@ class FooterLogin extends StatelessWidget {
                   offset: Offset(900 * value, 0.0),
                   child: const Text(
                     'Sobre nosotros',
-                    style: TextStyle(color: ColorsApp.grisMedio),
+                    style: TextStyle(color: Styles.grisMedio),
                   ))),
           TweenAnimationBuilder(
               curve: Curves.easeInOutExpo,
@@ -35,7 +35,7 @@ class FooterLogin extends StatelessWidget {
                   offset: Offset(900 * value, 0.0),
                   child: const Text(
                     'Contacto',
-                    style: TextStyle(color: ColorsApp.grisMedio),
+                    style: TextStyle(color: Styles.grisMedio),
                   ))),
           TweenAnimationBuilder(
               curve: Curves.easeInOutExpo,
@@ -45,7 +45,7 @@ class FooterLogin extends StatelessWidget {
                   offset: Offset(900 * value, 0.0),
                   child: const Text(
                     'Politicas y privacidad',
-                    style: TextStyle(color: ColorsApp.grisMedio),
+                    style: TextStyle(color: Styles.grisMedio),
                   ))),
           TweenAnimationBuilder(
               curve: Curves.easeInOutExpo,
@@ -55,7 +55,7 @@ class FooterLogin extends StatelessWidget {
                   offset: Offset(900 * value, 0.0),
                   child: const Text(
                     'NewsLetter',
-                    style: TextStyle(color: ColorsApp.grisMedio),
+                    style: TextStyle(color: Styles.grisMedio),
                   ))),
           TweenAnimationBuilder(
               curve: Curves.easeInOutExpo,
@@ -65,7 +65,7 @@ class FooterLogin extends StatelessWidget {
                   offset: Offset(900 * value, 0.0),
                   child: const Text(
                     'Ayuda',
-                    style: TextStyle(color: ColorsApp.grisMedio),
+                    style: TextStyle(color: Styles.grisMedio),
                   ))),
           TweenAnimationBuilder(
             curve: Curves.bounceInOut,
@@ -75,7 +75,7 @@ class FooterLogin extends StatelessWidget {
               offset: Offset(900 * value, 0.0),
               child: const Text(
                 'Trabaja con nosotros',
-                style: TextStyle(color: ColorsApp.grisMedio),
+                style: TextStyle(color: Styles.grisMedio),
               ),
             ),
           ),

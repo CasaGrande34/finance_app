@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 
 class ExpansionState with ChangeNotifier {
   bool _isExpanded = false;
-  double _width = 300;
+  double width = 300;
 
-  double get isWidth => _width;
-  set isWidth(double width) {
-    _width = width;
-  }
+  double get witdhMenor => width - 400.0;
 
   bool get isExpanded => _isExpanded;
 
-   toggleExpansion() {
+  toggleExpansion() {
     _isExpanded = !_isExpanded;
     notifyListeners();
   }

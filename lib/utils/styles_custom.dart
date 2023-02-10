@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ColorsApp {
+class Styles {
   //LIGHT
   static const Color backgroundLight = Color(0xffEAEAEA);
   static const Color colorSideMenuLight = Color(0xff1e1f21);
@@ -17,3 +17,9 @@ class ColorsApp {
   static const Color amarilloClaro = Color.fromARGB(255, 255, 208, 89);
   static const Color amarilloOscuro = Color.fromARGB(255, 206, 147, 0);
 }
+
+// -------------------------- padddign
+//Atajos de teclado nombre
+const double yyy = 18.0;
+const double rrr = 12.0;
+const double ttt = 8.0;

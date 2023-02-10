@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //file addresses
-import '../utils/colors_app.dart';
+import '../utils/styles_custom.dart';
 
 //?CUSTOM LIGHT THEME - METHOD
 ThemeData customLightTheme() {
@@ -9,9 +9,9 @@ ThemeData customLightTheme() {
 
   return lightTheme.copyWith(
     textTheme: customTextTheme(lightTheme.textTheme),
-    primaryColor: ColorsApp.primaryColorLight,
+    primaryColor: Styles.primaryColorLight,
     indicatorColor: const Color(0xFF807A6B),
-    scaffoldBackgroundColor: ColorsApp.backgroundLight,
+    scaffoldBackgroundColor: Styles.backgroundLight,
     primaryIconTheme: lightTheme.primaryIconTheme.copyWith(
       color: Colors.white,
       size: 20,
@@ -32,7 +32,7 @@ ThemeData customDarkTheme() {
   final ThemeData darkTheme = ThemeData.dark();
 
   return darkTheme.copyWith(
-    scaffoldBackgroundColor: ColorsApp.negroOscuro,
+    scaffoldBackgroundColor: Styles.negroOscuro,
     primaryColor: const Color.fromARGB(255, 90, 90, 90),
     brightness: Brightness.dark,
     textTheme: customTextTheme(darkTheme.textTheme),

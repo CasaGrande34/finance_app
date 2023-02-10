@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:finance_app/utils/fonts_custom.dart';
 import 'package:finance_app/utils/add_space.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../utils/colors_app.dart';
+import '../../../utils/styles_custom.dart';
 import '../../../utils/navbar/navbar_custom.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 import '../../../utils/sidemenu/side_menu.dart';
@@ -57,7 +57,7 @@ class _TablaBodyState extends State<TablaBody> {
           header: Text(
             'Registro de operaciones',
             maxLines: 2,
-            style: satisfy.copyWith(fontSize: 35, color: ColorsApp.negroOscuro),
+            style: satisfy.copyWith(fontSize: 35, color: Styles.negroOscuro),
           ),
           actions: [
             CustomOutlineButton(

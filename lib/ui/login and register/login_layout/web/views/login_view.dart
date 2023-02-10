@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/add_space.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 
-import '../../../../../utils/colors_app.dart';
+import '../../../../../utils/styles_custom.dart';
 import '../../components/bienvenida_title.dart';
 import '../../components/change_view_register.dart';
 import '../../components/container_form_login.dart';
@@ -44,7 +44,7 @@ class _LoginViewState extends State<LoginView> {
     double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
-        backgroundColor: ColorsApp.negroOscuro,
+        backgroundColor: Styles.negroOscuro,
         body: Stack(
           children: [
             Positioned(
@@ -65,7 +65,7 @@ class _LoginViewState extends State<LoginView> {
                 decoration: const BoxDecoration(
                   color: Colors.black,
                   gradient: RadialGradient(
-                    colors: [Colors.transparent, ColorsApp.negroOscuro],
+                    colors: [Colors.transparent, Styles.negroOscuro],
                     stops: [0.1, 0.6],
                   ),
                 ),

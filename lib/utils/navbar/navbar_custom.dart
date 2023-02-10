@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //dependencies
-import '../colors_app.dart';
+import '../styles_custom.dart';
 import 'icon_notification_custom.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //file addresses
@@ -32,7 +32,7 @@ class _NavBarContent extends StatelessWidget {
         addHorizontalSpace(padding3),
         const Icon(
           FontAwesomeIcons.bars,
-          color: ColorsApp.grisOscuro,
+          color: Styles.grisOscuro,
         ),
         addHorizontalSpace(20),
         const Spacer(),

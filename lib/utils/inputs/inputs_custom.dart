@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //file addresses
-import '../colors_app.dart';
+import '../styles_custom.dart';
 
 class CustomInputs {
   static InputDecoration authInputDecoration({
@@ -11,10 +11,10 @@ class CustomInputs {
   }) =>
       InputDecoration(
         contentPadding: const EdgeInsets.all(8.0),
-        hoverColor: ColorsApp.amarilloOscuro,
+        hoverColor: Styles.amarilloOscuro,
         labelText: labelText,
         labelStyle: const TextStyle(
-          color: ColorsApp.amarilloClaro,
+          color: Styles.amarilloClaro,
           fontSize: 15,
         ),
         hintText: hintText,
@@ -23,10 +23,10 @@ class CustomInputs {
           color: Colors.purpleAccent,
           fontSize: 18,
         ),
-        suffixIconColor: ColorsApp.amarilloClaro,
+        suffixIconColor: Styles.amarilloClaro,
         suffixIcon: icon,
         enabledBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(6)),
-            borderSide: BorderSide(color: ColorsApp.amarilloOscuro, width: 1)),
+            borderSide: BorderSide(color: Styles.amarilloOscuro, width: 1)),
       );
 }

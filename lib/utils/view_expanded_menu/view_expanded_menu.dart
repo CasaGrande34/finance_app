@@ -10,7 +10,7 @@ import 'components/collapse_viewexpanded_menu.dart';
 import 'components/text_myexpenses.dart';
 
 import '../add_space.dart';
-import '../colors_app.dart';
+import '../styles_custom.dart';
 import '../fonts_custom.dart';
 import '../padding_custom.dart';
 
@@ -37,11 +37,11 @@ class ViewExpandedMenu extends StatelessWidget {
       curve: Curves.easeInOutQuart,
       padding: const EdgeInsets.only(top: padding1),
       height: h,
-      color: ColorsApp.grisOscuro,
+      color: Styles.grisOscuro,
 
       width: expansionState.isExpanded
-          ? expansionState.isWidth - 300
-          : expansionState.isWidth,
+          ? expansionState.width - 300
+          : expansionState.width,
       // child: const _ViewSideMenuBody(),
       child:
           expansionState.isExpanded ? Container() : const _ViewSideMenuBody(),
@@ -136,17 +136,17 @@ class _BalanceMoney extends StatelessWidget {
                 addHorizontalSpace(25),
                 const Icon(
                   FontAwesomeIcons.circleDollarToSlot,
-                  color: ColorsApp.amarilloClaro,
+                  color: Styles.amarilloClaro,
                 ),
                 const Spacer(),
                 const CollapseViewExpandedMenu(
-                  borderColor: ColorsApp.negroMediano,
+                  borderColor: Styles.negroMediano,
                 ),
               ],
             ),
             Text(
               'Total del balance',
-              style: slabo.copyWith(color: ColorsApp.negroOscuro, fontSize: 18),
+              style: slabo.copyWith(color: Styles.negroOscuro, fontSize: 18),
             ),
           ],
         ),
@@ -191,12 +191,12 @@ class _MoneyBank extends StatelessWidget {
             children: [
               const Text(
                 'Dinero en el banco',
-                style: TextStyle(color: ColorsApp.amarilloOscuro),
+                style: TextStyle(color: Styles.amarilloOscuro),
               ),
               addHorizontalSpace(6),
               const Icon(
                 FontAwesomeIcons.bandcamp,
-                color: ColorsApp.amarilloClaro,
+                color: Styles.amarilloClaro,
                 size: 13,
               )
             ],

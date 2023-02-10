@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 //file addresses
 import '../../../../../utils/add_space.dart';
-import '../../../../../utils/colors_app.dart';
+import '../../../../utils/styles_custom.dart';
 import '../../../../../utils/fonts_custom.dart';
 import '../../../../../utils/padding_custom.dart';
 import '../../../../../utils/inputs/inputs_custom.dart';
@@ -40,7 +40,7 @@ class _ContainerFormLoginState extends State<ContainerFormLogin> {
       height: h * widget.height,
       width: w * widget.width,
       decoration: BoxDecoration(
-        color: ColorsApp.negroMediano,
+        color: Styles.negroMediano,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: Colors.grey,
@@ -134,7 +134,7 @@ class _BodyContainerFormLoginState extends State<_BodyContainerFormLogin> {
                   height: h * .06,
                   controller: loginFormProvider.buttonController,
                   onPressed: loginFormProvider.validateForm,
-                  color: ColorsApp.amarilloClaro,
+                  color: Styles.amarilloClaro,
                   successColor: Colors.purple,
                   child: const Text('Ingresar'),
                 ),

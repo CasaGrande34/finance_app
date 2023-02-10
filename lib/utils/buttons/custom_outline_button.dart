@@ -1,7 +1,7 @@
 import 'package:finance_app/utils/add_space.dart';
 import 'package:flutter/material.dart';
 
-import '../colors_app.dart';
+import '../styles_custom.dart';
 import '../fonts_custom.dart';
 
 class CustomOutlineButton extends StatelessWidget {
@@ -17,7 +17,7 @@ class CustomOutlineButton extends StatelessWidget {
     required this.text,
     required this.icon,
     this.isFilled = false,
-    this.color = ColorsApp.grisOscuro,
+    this.color = Styles.grisOscuro,
   });
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CustomOutlineButton extends StatelessWidget {
       style: ButtonStyle(
           shape: MaterialStateProperty.all(const StadiumBorder()),
           backgroundColor: MaterialStateProperty.all(color),
-          overlayColor: MaterialStateProperty.all(ColorsApp.amarilloClaro)),
+          overlayColor: MaterialStateProperty.all(Styles.amarilloClaro)),
       onPressed: () => onPressed(),
       child: Row(
         children: [

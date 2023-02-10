@@ -7,7 +7,6 @@ class RoutesDelegateFluro {
   //Routes Strings
   static const loginR = '/auth/login';
   static const registerR = '/auth/register';
-
   static const homeR = '/';
   static const expensesR = '/expenses';
   static const route404 = '/404';

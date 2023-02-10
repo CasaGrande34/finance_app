@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 //file addresses
 import '../../../../../utils/add_space.dart';
-import '../../../../../utils/colors_app.dart';
+import '../../../../../utils/styles_custom.dart';
 import '../../../../../utils/fonts_custom.dart';
 import '../../components/container_form_register.dart';
 import 'package:finance_app/utils/padding_custom.dart';
@@ -190,7 +190,7 @@ class _RegisterViewState extends State<RegisterView> {
                           const Text(
                             'Inicia sesion',
                             style: TextStyle(
-                                color: ColorsApp.amarilloOscuro,
+                                color: Styles.amarilloOscuro,
                                 fontWeight: FontWeight.bold),
                           )
                         ],
@@ -214,8 +214,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   offset: Offset(900 * value, 0.0),
                                   child: const Text(
                                     'Sobre nosotros',
-                                    style:
-                                        TextStyle(color: ColorsApp.grisMedio),
+                                    style: TextStyle(color: Styles.grisMedio),
                                   ))),
                       TweenAnimationBuilder(
                           curve: Curves.decelerate,
@@ -226,8 +225,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   offset: Offset(900 * value, 0.0),
                                   child: const Text(
                                     'Contacto',
-                                    style:
-                                        TextStyle(color: ColorsApp.grisMedio),
+                                    style: TextStyle(color: Styles.grisMedio),
                                   ))),
                       TweenAnimationBuilder(
                           curve: Curves.decelerate,
@@ -238,8 +236,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   offset: Offset(900 * value, 0.0),
                                   child: const Text(
                                     'Politicas y privacidad',
-                                    style:
-                                        TextStyle(color: ColorsApp.grisMedio),
+                                    style: TextStyle(color: Styles.grisMedio),
                                   ))),
                       TweenAnimationBuilder(
                           curve: Curves.decelerate,
@@ -250,8 +247,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   offset: Offset(900 * value, 0.0),
                                   child: const Text(
                                     'NewsLetter',
-                                    style:
-                                        TextStyle(color: ColorsApp.grisMedio),
+                                    style: TextStyle(color: Styles.grisMedio),
                                   ))),
                       TweenAnimationBuilder(
                           curve: Curves.decelerate,
@@ -262,8 +258,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   offset: Offset(900 * value, 0.0),
                                   child: const Text(
                                     'Ayuda',
-                                    style:
-                                        TextStyle(color: ColorsApp.grisMedio),
+                                    style: TextStyle(color: Styles.grisMedio),
                                   ))),
                       TweenAnimationBuilder(
                           curve: Curves.decelerate,
@@ -274,8 +269,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   offset: Offset(900 * value, 0.0),
                                   child: const Text(
                                     'Trabaja con nosotros',
-                                    style:
-                                        TextStyle(color: ColorsApp.grisMedio),
+                                    style: TextStyle(color: Styles.grisMedio),
                                   )))
                     ],
                   ),

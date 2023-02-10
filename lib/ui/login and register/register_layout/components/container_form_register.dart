@@ -9,7 +9,7 @@ import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../../utils/fonts_custom.dart';
 import '../../../../utils/inputs/inputs_custom.dart';
 import '../../../../utils/add_space.dart';
-import '../../../../utils/colors_app.dart';
+import '../../../../utils/styles_custom.dart';
 import '../../../../utils/padding_custom.dart';
 
 class ContainerFormRegister extends StatefulWidget {
@@ -40,7 +40,7 @@ class _ContainerFormRegisterState extends State<ContainerFormRegister> {
       height: h * widget.height,
       width: w * widget.width,
       decoration: BoxDecoration(
-        color: ColorsApp.negroMediano,
+        color: Styles.negroMediano,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: Colors.grey,
@@ -96,10 +96,12 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                   },
                   validator: (value) {
                     //CONDICIONES DEL VALIDADOR
-                    if (value == null || value.isEmpty)
+                    if (value == null || value.isEmpty) {
                       return 'Ingrese su nombre';
-                    if (value.length < 3)
+                    }
+                    if (value.length < 3) {
                       return 'Ingrese un apodo de al menos 3 caracteres';
+                    }
                     return null;
                   },
                   decoration: CustomInputs.authInputDecoration(
@@ -121,8 +123,9 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                   },
                   validator: (value) {
                     //CONDICIONES DEL VALIDADOR
-                    if (!EmailValidator.validate(value ?? ''))
+                    if (!EmailValidator.validate(value ?? '')) {
                       return 'Ingrese por favor un email valido';
+                    }
                     return null;
                   },
                   decoration: CustomInputs.authInputDecoration(
@@ -142,10 +145,12 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                   },
                   validator: (value) {
                     //CONDICIONES DEL VALIDADOR
-                    if (value == null || value.isEmpty)
+                    if (value == null || value.isEmpty) {
                       return 'Ingrese su contrasenia';
-                    if (value.length < 6)
+                    }
+                    if (value.length < 6) {
                       return 'La contrasenia debe ser de almenos 6 caracteres';
+                    }
                     return null;
                   },
                   obscureText: true,
@@ -165,7 +170,7 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
                   onPressed: () {
                     loginFormProvider.validateForm();
                   },
-                  color: ColorsApp.amarilloClaro,
+                  color: Styles.amarilloClaro,
                   successColor: Colors.purple,
                   child: const Text('Ingresar')),
               addVerticalSpace(padding2),

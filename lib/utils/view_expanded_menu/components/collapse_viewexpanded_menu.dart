@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/expansion_state.dart';
-import '../../colors_app.dart';
+import '../../styles_custom.dart';
 
 class CollapseViewExpandedMenu extends StatefulWidget {
   final Color? borderColor;
@@ -14,11 +14,11 @@ class CollapseViewExpandedMenu extends StatefulWidget {
 
   const CollapseViewExpandedMenu({
     super.key,
-    this.borderColor = ColorsApp.negroMediano,
-    this.colorContainerIsVisibleTrue = ColorsApp.grisClaro,
-    this.colorContainerIsVisibleFalse = ColorsApp.negroMediano,
-    this.colorIconTrue = ColorsApp.amarilloClaro,
-    this.colorIconFalse = ColorsApp.grisClaro,
+    this.borderColor = Styles.negroMediano,
+    this.colorContainerIsVisibleTrue = Styles.grisClaro,
+    this.colorContainerIsVisibleFalse = Styles.negroMediano,
+    this.colorIconTrue = Styles.amarilloClaro,
+    this.colorIconFalse = Styles.grisClaro,
     this.icon = Icons.keyboard_double_arrow_left_outlined,
   });
 

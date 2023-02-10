@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //file addresses
-import '../../../utils/colors_app.dart';
+import '../styles_custom.dart';
 
 class CustomIconButton extends StatelessWidget {
   final Function onPressed;
@@ -17,10 +17,10 @@ class CustomIconButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     required this.icon,
-    this.color = ColorsApp.amarilloClaro,
+    this.color = Styles.amarilloClaro,
     this.isFilled = false,
     this.iconColor = Colors.white,
-    this.textColor = ColorsApp.amarilloClaro,
+    this.textColor = Styles.amarilloClaro,
   }) : super(key: key);
 
   @override
@@ -29,7 +29,7 @@ class CustomIconButton extends StatelessWidget {
       style: ButtonStyle(
           shape: MaterialStateProperty.all(const StadiumBorder()),
           backgroundColor: MaterialStateProperty.all(color),
-          overlayColor: MaterialStateProperty.all(ColorsApp.amarilloOscuro)),
+          overlayColor: MaterialStateProperty.all(Styles.amarilloOscuro)),
       onPressed: () => onPressed,
       child: Row(
         children: [

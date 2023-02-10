@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 //file addresses
 import '../../../../utils/add_space.dart';
-import '../../../../utils/colors_app.dart';
+import '../../../../utils/styles_custom.dart';
 import '../../../../utils/fonts_custom.dart';
 import '../../../../utils/inputs/inputs_custom.dart';
 import '../../../../utils/padding_custom.dart';
@@ -38,7 +38,7 @@ class _ContainerFormLoginState extends State<ContainerFormLogin> {
       height: h * widget.height,
       width: w * widget.width,
       decoration: BoxDecoration(
-        color: ColorsApp.negroMediano,
+        color: Styles.negroMediano,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: Colors.grey,
@@ -95,10 +95,12 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
             child: TextFormField(
               validator: (value) {
                 //CONDICIONES DEL VALIDADOR
-                if (value == null || value.isEmpty)
+                if (value == null || value.isEmpty) {
                   return 'Ingrese su contrasenia';
-                if (value.length < 6)
+                }
+                if (value.length < 6) {
                   return 'La contrasenia debe ser de almenos 6 caracteres';
+                }
                 return null;
               },
               obscureText: true,
@@ -115,7 +117,7 @@ class _BodyContainerFormState extends State<BodyContainerForm> {
               height: h * .06,
               controller: buttonController,
               onPressed: doSomething,
-              color: ColorsApp.amarilloClaro,
+              color: Styles.amarilloClaro,
               successColor: Colors.purple,
               child: const Text('Ingresar')),
           addVerticalSpace(padding2),

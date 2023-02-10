@@ -1,10 +1,11 @@
 import 'package:fluro/fluro.dart';
 //file addresses
 import 'package:finance_app/ui/views.dart';
+import 'package:finance_app/ui/home_layout/home_layout.dart';
 
 //Handlers
 final Handler homeHandler = Handler(handlerFunc: ((context, parameters) {
-  return const HomeView();
+  return const HomeLayout();
 }));
 
 final Handler loginHandler =

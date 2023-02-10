@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //file addresses
 import '../../add_space.dart';
-import '../../colors_app.dart';
+import '../../styles_custom.dart';
 import '../../fonts_custom.dart';
 
 class ListTileExpensesTransaction extends StatefulWidget {
@@ -37,7 +37,7 @@ class _ListTileExpensesTransactionState
     return MouseRegion(
       onHover: (event) {
         setState(() {
-          colorContainerSelect = ColorsApp.negroMediano;
+          colorContainerSelect = Styles.negroMediano;
           onHover = true;
         });
       },
@@ -55,10 +55,10 @@ class _ListTileExpensesTransactionState
         child: ListTile(
           leading: CircleAvatar(
             radius: 18,
-            backgroundColor: ColorsApp.amarilloClaro,
+            backgroundColor: Styles.amarilloClaro,
             child: Icon(
               widget.icon,
-              color: ColorsApp.negroMediano,
+              color: Styles.negroMediano,
               size: onHover ? 18 : 14,
             ),
           ),
@@ -68,7 +68,7 @@ class _ListTileExpensesTransactionState
               '\$ ${widget.dinero.toString()} ',
               style: roboto.copyWith(
                 fontSize: 14,
-                color: ColorsApp.blanco,
+                color: Styles.blanco,
                 letterSpacing: 2.0,
               ),
             ),
@@ -77,25 +77,23 @@ class _ListTileExpensesTransactionState
           subtitle: Row(
             children: [
               Chip(
-                backgroundColor:
-                    onHover ? ColorsApp.blanco : ColorsApp.negroMediano,
+                backgroundColor: onHover ? Styles.blanco : Styles.negroMediano,
                 label: Text(
                   widget.chip1,
                   style: roboto.copyWith(
                     fontSize: 10,
-                    color: onHover ? ColorsApp.negroMediano : ColorsApp.blanco,
+                    color: onHover ? Styles.negroMediano : Styles.blanco,
                   ),
                 ),
               ),
               addHorizontalSpace(8),
               Chip(
-                backgroundColor:
-                    onHover ? ColorsApp.blanco : ColorsApp.negroMediano,
+                backgroundColor: onHover ? Styles.blanco : Styles.negroMediano,
                 label: Text(
                   widget.chip2 ?? '',
                   style: roboto.copyWith(
                     fontSize: 10,
-                    color: onHover ? ColorsApp.negroMediano : ColorsApp.blanco,
+                    color: onHover ? Styles.negroMediano : Styles.blanco,
                   ),
                 ),
               ),
@@ -104,7 +102,7 @@ class _ListTileExpensesTransactionState
           trailing: Icon(
             FontAwesomeIcons.chevronRight,
             size: 17,
-            color: onHover ? ColorsApp.blanco : ColorsApp.negroMediano,
+            color: onHover ? Styles.blanco : Styles.negroMediano,
           ),
           onTap: () {},
         ),

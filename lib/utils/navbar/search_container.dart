@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //file addresses
-import '../colors_app.dart';
+import '../styles_custom.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 import 'package:finance_app/utils/add_space.dart';
 
@@ -21,7 +21,7 @@ class SearchContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: ColorsApp.grisOscuro,
+        color: Styles.grisOscuro,
       ),
       width: w * .3,
       height: h,
@@ -37,7 +37,7 @@ class _SearchContent extends StatelessWidget {
       children: [
         addHorizontalSpace(padding3),
         const Icon(FontAwesomeIcons.magnifyingGlassDollar,
-            color: ColorsApp.grisClaro),
+            color: Styles.grisClaro),
         addHorizontalSpace(padding3),
         Expanded(
           child: Padding(
