@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/add_space.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 
+import '../../../../../utils/responsive.dart';
 import '../../../../../utils/styles_custom.dart';
 import '../../components/bienvenida_title.dart';
 import '../../components/change_view_register.dart';
@@ -26,16 +27,6 @@ class _LoginViewState extends State<LoginView> {
   String logoPinterest = 'assets/logo/logo_pinterest.png';
   String logoGoogle = 'assets/logo/logo_google.png';
 
-  //Lista de imagenes de fondos que tienen login y create view
-  List<String> divisasBackground = [
-    'assets/divisa_background/1.jpg',
-    'assets/divisa_background/2.jpg',
-    'assets/divisa_background/3.jpg',
-    'assets/divisa_background/4.jpg',
-    'assets/divisa_background/5.jpg',
-    'assets/divisa_background/6.jpg',
-  ];
-
   GlobalKey<FormState> formKey = GlobalKey();
 
   @override
@@ -47,30 +38,20 @@ class _LoginViewState extends State<LoginView> {
         backgroundColor: Styles.negroOscuro,
         body: Stack(
           children: [
-            Positioned(
-              top: 50,
-              right: 150,
-              child: Image.asset(
-                'assets/background/dinero.gif',
-                fit: BoxFit.cover,
-                width: 650,
-              ),
-            ),
-            Positioned(
-              top: -105,
-              left: 400,
-              child: Container(
-                width: w,
-                height: h,
-                decoration: const BoxDecoration(
-                  color: Colors.black,
-                  gradient: RadialGradient(
-                    colors: [Colors.transparent, Styles.negroOscuro],
-                    stops: [0.1, 0.6],
-                  ),
-                ),
-              ),
-            ),
+            Responsive.isDesktop(context)
+                ? const Positioned(
+                    top: 50,
+                    right: 150,
+                    child: GifDineroBackground(),
+                  )
+                : SizedBox(),
+            Responsive.isDesktop(context)
+                ? const Positioned(
+                    top: -105,
+                    left: 400,
+                    child: BackgroundGradient(),
+                  )
+                : SizedBox(),
             Column(
               children: [
                 addVerticalSpace(70),
@@ -178,5 +159,42 @@ class _LoginViewState extends State<LoginView> {
             ),
           ],
         ));
+  }
+}
+
+class GifDineroBackground extends StatelessWidget {
+  const GifDineroBackground({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      'assets/background/dinero.gif',
+      fit: BoxFit.cover,
+      width: 650,
+    );
+  }
+}
+
+class BackgroundGradient extends StatelessWidget {
+  const BackgroundGradient({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
+    return Container(
+      width: w,
+      height: h,
+      decoration: const BoxDecoration(
+        gradient: RadialGradient(
+          colors: [Colors.transparent, Styles.negroOscuro],
+          stops: [0.1, 0.6],
+        ),
+      ),
+    );
   }
 }

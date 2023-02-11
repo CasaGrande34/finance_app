@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 //file addresses
@@ -12,135 +10,101 @@ class DashBoardHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // double w = MediaQuery.of(context).size.width;
-    // double h = MediaQuery.of(context).size.height;
-
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          NavBarCustom(),
-          DashboardCustomBody(),
-        ],
-      ),
-    );
-  }
-}
-
-class DashboardCustomBody extends StatelessWidget {
-  const DashboardCustomBody({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    // double w = MediaQuery.of(context).size.width;
-    // double h = MediaQuery.of(context).size.height;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        // mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          BackgrounddeTarjetasHomeScreen(),
-          addVerticalSpace(20),
-          const GraficDashboardMenu()
-        ],
-      ),
-    );
-  }
-}
-
-// ---------------------------------------------------------
-class BackgrounddeTarjetasHomeScreen extends StatefulWidget {
-  const BackgrounddeTarjetasHomeScreen({
-    super.key,
-  });
-
-  @override
-  State<BackgrounddeTarjetasHomeScreen> createState() =>
-      _BackgrounddeTarjetasHomeScreenState();
-}
-
-class _BackgrounddeTarjetasHomeScreenState
-    extends State<BackgrounddeTarjetasHomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
-    const double topdelasFlechas = 50;
-    const double posicionWidth = 10;
-
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        //Seguimos en este container
-        Container(
-          clipBehavior: Clip.hardEdge,
-          height: 150,
-          width: w * .85,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(rrr),
-            color: Styles.grisOscuro,
-          ),
-          child: Expanded(child: ListadeTarjetas()),
-        ),
-        // Container(
-        //     height: 170, width: double.infinity, child: ListadeTarjetas()),
-
-        Positioned(
-          top: topdelasFlechas,
-          right: 0 - posicionWidth,
-          child: Flecha(
-            right: true,
-          ),
-        ),
-        //left
-        Positioned(
-          top: topdelasFlechas,
-          left: 0 - posicionWidth,
-          child: Flecha(),
-        ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const [
+        NavBarCustom(),
+        ListViewdeTarjetas(),
       ],
     );
   }
 }
 
-// -------------------------------------------------
-class ListadeTarjetas extends StatelessWidget {
-  const ListadeTarjetas({
-    super.key,
-  });
+class ListViewdeTarjetas extends StatelessWidget {
+  const ListViewdeTarjetas({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
-    return ListView.builder(
-      itemCount: cardItems.length,
-      scrollDirection: Axis.horizontal,
-      clipBehavior: Clip.none,
-      physics: BouncingScrollPhysics(),
-      // padding: const EdgeInsets.symmetric(horizontal: rrr),
-      itemBuilder: (BuildContext context, int index) {
-        final itemCard = cardItems[index];
-        return CardListItemHome();
-      },
-    );
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+        child: Container(
+          color: Colors.black54,
+          height: 130,
+          width: double.infinity,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.red,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.blue,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.yellow,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.black,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.grey,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.red,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.blue,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.yellow,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.black,
+                ),
+                Container(
+                  height: 80,
+                  width: 200,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }
-
-List<int> cardItems = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // ----------------------------------------------------
 class CardListItemHome extends StatelessWidget {
   final bool radiusrevert;
-  const CardListItemHome({super.key, this.radiusrevert = false});
+  const CardListItemHome({
+    super.key,
+    required this.radiusrevert,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(ttt),
-      padding: EdgeInsets.all(ttt),
+      margin: const EdgeInsets.all(ttt),
+      padding: const EdgeInsets.all(ttt),
       height: 200,
       width: 250,
       decoration: BoxDecoration(
@@ -155,14 +119,14 @@ class CardListItemHome extends StatelessWidget {
         children: [
           Row(
             children: [
-              FlutterLogo(
+              const FlutterLogo(
                 size: 60.0,
               ),
               addHorizontalSpace(yyy),
-              Text('company name'),
+              const Text('company '),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Container(
             height: 3,
             width: 70,
@@ -221,74 +185,74 @@ class _FlechaState extends State<Flecha> {
   }
 }
 
-class GraficDashboardMenu extends StatefulWidget {
-  const GraficDashboardMenu({
-    super.key,
-  });
+// class GraficDashboardMenu extends StatefulWidget {
+//   const GraficDashboardMenu({
+//     super.key,
+//   });
 
-  @override
-  State<GraficDashboardMenu> createState() => _GraficDashboardMenuState();
-}
+//   @override
+//   State<GraficDashboardMenu> createState() => _GraficDashboardMenuState();
+// }
 
-class _GraficDashboardMenuState extends State<GraficDashboardMenu>
-    with TickerProviderStateMixin {
-  double rightMovementF = -190.0;
-  double rightMovementT = -100.0;
-  // double rightMovementF = -10.0;
-  // double rightMovementT = -12.0;
+// class _GraficDashboardMenuState extends State<GraficDashboardMenu>
+//     with TickerProviderStateMixin {
+//   double rightMovementF = -190.0;
+//   double rightMovementT = -100.0;
+//   // double rightMovementF = -10.0;
+//   // double rightMovementT = -12.0;
 
-  double bottomMovementT = -100;
-  double bottomMovementF = -300;
-  // double bottomMovementT = -15;
-  // double bottomMovementF = -10;
-  bool showDollar = true;
+//   double bottomMovementT = -100;
+//   double bottomMovementF = -300;
+//   // double bottomMovementT = -15;
+//   // double bottomMovementF = -10;
+//   bool showDollar = true;
 
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Timer(const Duration(milliseconds: 1000), () {
-        setState(() {});
-        showDollar = false;
-      });
-      Timer(const Duration(milliseconds: 3000), () {
-        setState(() {});
-        showDollar = true;
-      });
-    });
-    super.initState();
-  }
+//   @override
+//   void initState() {
+//     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+//       Timer(const Duration(milliseconds: 1000), () {
+//         setState(() {});
+//         showDollar = false;
+//       });
+//       Timer(const Duration(milliseconds: 3000), () {
+//         setState(() {});
+//         showDollar = true;
+//       });
+//     });
+//     super.initState();
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
-    return Container(
-      height: 320,
-      clipBehavior: Clip.hardEdge,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Styles.grisOscuro,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Stack(
-        children: [
-          //IMAGE BACKGROUND
-          AnimatedPositioned(
-            height: showDollar ? h * .5 : h * .1,
-            right: showDollar ? rightMovementT : rightMovementF,
-            bottom: showDollar ? bottomMovementT : bottomMovementF,
-            curve: Curves.easeInOutBack,
-            duration: const Duration(milliseconds: 500),
-            child: Transform.rotate(
-              angle: 56,
-              child: Image.asset(
-                'assets/dolar/dolar1.png',
-                fit: BoxFit.contain,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     final h = MediaQuery.of(context).size.height;
+//     final w = MediaQuery.of(context).size.width;
+//     return Container(
+//       height: 320,
+//       clipBehavior: Clip.hardEdge,
+//       width: double.infinity,
+//       decoration: BoxDecoration(
+//         color: Styles.grisOscuro,
+//         borderRadius: BorderRadius.circular(15),
+//       ),
+//       child: Stack(
+//         children: [
+//           //IMAGE BACKGROUND
+//           AnimatedPositioned(
+//             height: showDollar ? h * .5 : h * .1,
+//             right: showDollar ? rightMovementT : rightMovementF,
+//             bottom: showDollar ? bottomMovementT : bottomMovementF,
+//             curve: Curves.easeInOutBack,
+//             duration: const Duration(milliseconds: 500),
+//             child: Transform.rotate(
+//               angle: 56,
+//               child: Image.asset(
+//                 'assets/dolar/dolar1.png',
+//                 fit: BoxFit.contain,
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
