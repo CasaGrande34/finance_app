@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 //dependencies
 
 //file addresses
-import '../../../../../routes/router_flutro.dart';
+import '../../../../../routes/router_fluro.dart';
 import '../../../../../utils/add_space.dart';
 import 'package:finance_app/utils/padding_custom.dart';
 

@@ -1,4 +1,5 @@
 import 'package:finance_app/services/local_storage.dart';
+import 'package:finance_app/services/navigation_service.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
@@ -6,7 +7,7 @@ import 'package:provider/provider.dart';
 // import 'package:url_strategy/url_strategy.dart';
 
 //file addresses
-import 'routes/router_flutro.dart';
+import 'routes/router_fluro.dart';
 import 'package:finance_app/services/theme_custom.dart';
 import 'package:finance_app/providers/auth_provider.dart';
 import 'package:finance_app/providers/expansion_state.dart';
@@ -49,6 +50,7 @@ class AppState extends StatelessWidget {
           create: (_) => ExpansionState(),
         ),
         ChangeNotifierProvider(
+          lazy: false,
           create: (_) => AuthProvider(),
         ),
       ],
@@ -72,6 +74,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: widget.title,
       onGenerateRoute: RoutesDelegateFluro.router.generator,
+      navigatorKey: NavigationService.navigationKey,
       theme: customDarkTheme(),
       themeMode: ThemeMode.system,
     );

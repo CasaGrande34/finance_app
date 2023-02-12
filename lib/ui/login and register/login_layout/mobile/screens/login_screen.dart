@@ -1,3 +1,5 @@
+import 'package:finance_app/ui/login%20and%20register/components/container_form_login.dart';
+import 'package:finance_app/utils/styles_custom.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -12,8 +14,14 @@ class LoginScreen extends StatelessWidget {
         title: const Text('LoginScreen'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(w.toString()),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: rrr),
+            child: ContainerFormLogin(title: 'Inicia Sesion'),
+          )
+        ],
       ),
     );
   }

@@ -8,6 +8,7 @@ class RoutesDelegateFluro {
   static const loginR = '/auth/login';
   static const registerR = '/auth/register';
   static const homeR = '/';
+  static const homeR2 = '/dashboard';
   static const expensesR = '/expenses';
   static const route404 = '/404';
 
@@ -27,6 +28,11 @@ class RoutesDelegateFluro {
 
     router.define(
       homeR,
+      handler: homeHandler,
+    );
+
+    router.define(
+      homeR2,
       handler: homeHandler,
     );
 
