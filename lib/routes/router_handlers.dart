@@ -4,6 +4,8 @@ import 'package:fluro/fluro.dart';
 import 'package:finance_app/ui/views.dart';
 import 'package:finance_app/ui/home_layout/home_layout.dart';
 
+import '../ui/login and register/login_layout/web/views/register_view.dart';
+
 //Handlers
 final Handler homeHandler = Handler(handlerFunc: ((context, parameters) {
   return const HomeLayout();
@@ -12,8 +14,8 @@ final Handler homeHandler = Handler(handlerFunc: ((context, parameters) {
 final Handler loginHandler =
     Handler(handlerFunc: ((context, parameters) => const LoginLayout()));
 
-// final Handler registerHandler =
-//     Handler(handlerFunc: ((context, parameters) => const RegisterView()));
+final Handler registerHandler =
+    Handler(handlerFunc: ((context, parameters) => const RegisterView()));
 
 final Handler view404Handler =
     Handler(handlerFunc: ((context, parameters) => const View404()));

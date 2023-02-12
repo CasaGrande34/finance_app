@@ -15,14 +15,14 @@ import '../../components/container_form_login.dart';
 import '../../components/footer_login.dart';
 import '../../components/logo_item_login.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class RegisterView extends StatefulWidget {
+  const RegisterView({Key? key}) : super(key: key);
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   //String que cambian la luminosidad de los iconos de la ui de login y register
   String logoGithub = 'assets/logo/logo_github.png';
   String logoPinterest = 'assets/logo/logo_pinterest.png';
@@ -48,8 +48,8 @@ class _LoginViewState extends State<LoginView> {
             Column(
               children: [
                 addVerticalSpace(70),
-                BienvenidaTitle(
-                  text: 'Que bueno verte de nuevo',
+                const BienvenidaTitle(
+                  text: 'Bienvenido',
                 ),
                 addVerticalSpace(50),
                 //FORM CONTAINER
@@ -59,7 +59,7 @@ class _LoginViewState extends State<LoginView> {
                   duration: const Duration(milliseconds: 500),
                   builder: (context, value, child) => Transform.scale(
                     scale: 1.0 * value,
-                    child: const ContainerFormLogin(title: 'Inicia sesion'),
+                    child: const ContainerFormLogin(title: 'Crea una cuenta'),
                   ),
                 ),
                 addVerticalSpace(padding2),
@@ -146,10 +146,10 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
                 addVerticalSpace(padding2),
-                const ChangeView(
-                  route: RoutesDelegateFluro.registerR,
-                  text1: 'No tienes cuenta?',
-                  textCambio: 'Registrate',
+                ChangeView(
+                  route: RoutesDelegateFluro.loginR,
+                  text1: 'Ya tienes cuenta?',
+                  textCambio: 'Inicia sesion',
                 ),
                 const Spacer(),
                 const FooterLogin()

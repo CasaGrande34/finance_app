@@ -14,14 +14,10 @@ import '../../../../../utils/padding_custom.dart';
 import '../../../../../utils/inputs/inputs_custom.dart';
 
 class ContainerFormLogin extends StatefulWidget {
-  final double height;
-  final double width;
   final String? logo;
 
   const ContainerFormLogin({
     Key? key,
-    required this.height,
-    required this.width,
     this.logo,
     required String title,
   }) : super(key: key);
@@ -33,18 +29,15 @@ class ContainerFormLogin extends StatefulWidget {
 class _ContainerFormLoginState extends State<ContainerFormLogin> {
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
-
     return Container(
-      height: h * widget.height,
-      width: w * widget.width,
+      height: 300,
+      width: 400,
       decoration: BoxDecoration(
         color: Styles.negroMediano,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: Colors.grey,
-          width: (widget.width < .1) ? 3 : 0,
+          width: 3,
         ),
       ),
       child: const _BodyContainerFormLogin(),
@@ -63,6 +56,7 @@ class _BodyContainerFormLogin extends StatefulWidget {
 class _BodyContainerFormLoginState extends State<_BodyContainerFormLogin> {
   RoundedLoadingButtonController buttonController =
       RoundedLoadingButtonController();
+  bool obscureText = true;
   final GlobalKey<FormState> formLoginKey = GlobalKey();
 
   @override
@@ -90,6 +84,7 @@ class _BodyContainerFormLoginState extends State<_BodyContainerFormLogin> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: padding1),
                   child: TextFormField(
+                    style: TextStyle(color: Colors.white),
                     validator: (value) {
                       //CONDICIONES DEL VALIDADOR
                       if (!EmailValidator.validate(value ?? '')) {
@@ -101,7 +96,10 @@ class _BodyContainerFormLoginState extends State<_BodyContainerFormLogin> {
                     decoration: CustomInputs.authInputDecoration(
                       labelText: 'Email',
                       hintText: 'Ingrese su correo',
-                      icon: const Icon(FontAwesomeIcons.envelope),
+                      icon: const Icon(
+                        FontAwesomeIcons.envelope,
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),
@@ -109,6 +107,7 @@ class _BodyContainerFormLoginState extends State<_BodyContainerFormLogin> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: padding1),
                   child: TextFormField(
+                    style: TextStyle(color: Colors.white),
                     validator: (value) {
                       //CONDICIONES DEL VALIDADOR
                       if (value == null || value.isEmpty) {
@@ -120,11 +119,22 @@ class _BodyContainerFormLoginState extends State<_BodyContainerFormLogin> {
                       return null;
                     },
                     onChanged: (value) => loginFormProvider.password = value,
-                    obscureText: true,
+                    obscureText: obscureText,
                     decoration: CustomInputs.authInputDecoration(
                       labelText: 'Password',
                       hintText: '*********',
-                      icon: const Icon(FontAwesomeIcons.eye),
+                      icon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              obscureText = !obscureText;
+                            });
+                          },
+                          child: Icon(
+                            obscureText
+                                ? FontAwesomeIcons.eyeLowVision
+                                : FontAwesomeIcons.eye,
+                            size: 20,
+                          )),
                     ),
                   ),
                 ),

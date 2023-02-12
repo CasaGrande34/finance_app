@@ -15,8 +15,7 @@ class FormLogin extends StatelessWidget {
       duration: const Duration(milliseconds: 500),
       builder: (context, value, child) => Transform.scale(
         scale: 1.0 * value,
-        child: const ContainerFormLogin(
-            height: .45, width: .35, title: 'Inicia sesion'),
+        child: const ContainerFormLogin(title: 'Inicia sesion'),
       ),
     );
   }

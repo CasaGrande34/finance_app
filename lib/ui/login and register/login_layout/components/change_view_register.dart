@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/add_space.dart';
 import '../../../../utils/styles_custom.dart';
 
-class ChangeViewRegister extends StatelessWidget {
-  const ChangeViewRegister({
+class ChangeView extends StatelessWidget {
+  final String text1;
+  final String textCambio;
+  final String route;
+  const ChangeView({
     super.key,
+    required this.text1,
+    required this.textCambio,
+    required this.route,
   });
 
   @override
@@ -23,15 +29,21 @@ class ChangeViewRegister extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Aun no tienes cuenta ?',
-                style: TextStyle(color: Colors.white),
+              Text(
+                text1,
+                style: const TextStyle(color: Colors.white),
               ),
               addHorizontalSpace(6),
-              const Text(
-                'Registrate',
-                style: TextStyle(
-                    color: Styles.amarilloOscuro, fontWeight: FontWeight.bold),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed(route);
+                },
+                child: Text(
+                  textCambio,
+                  style: const TextStyle(
+                      color: Styles.amarilloOscuro,
+                      fontWeight: FontWeight.bold),
+                ),
               )
             ],
           ),

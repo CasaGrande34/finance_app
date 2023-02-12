@@ -15,10 +15,10 @@ class RoutesDelegateFluro {
   static final FluroRouter router = FluroRouter();
 
   static void configureRoutes() {
-    // router.define(
-    //   registerR,
-    //   handler: registerHandler,
-    // );
+    router.define(
+      registerR,
+      handler: registerHandler,
+    );
 
     router.define(
       loginR,
