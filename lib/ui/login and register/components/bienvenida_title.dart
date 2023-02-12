@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/fonts_custom.dart';
+import '../../../../utils/fonts_custom.dart';
 
 class BienvenidaTitle extends StatelessWidget {
   final String text;

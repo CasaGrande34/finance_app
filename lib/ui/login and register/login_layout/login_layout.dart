@@ -9,7 +9,7 @@ class LoginLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(
+    return const Responsive(
       desktop: LoginView(),
       tablet: LoginView(),
       mobile: LoginScreen(),

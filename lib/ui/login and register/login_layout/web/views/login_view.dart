@@ -9,11 +9,11 @@ import 'package:finance_app/utils/padding_custom.dart';
 
 import '../../../../../utils/responsive.dart';
 import '../../../../../utils/styles_custom.dart';
-import '../../components/bienvenida_title.dart';
-import '../../components/change_view_register.dart';
-import '../../components/container_form_login.dart';
-import '../../components/footer_login.dart';
-import '../../components/logo_item_login.dart';
+import '../../../components/bienvenida_title.dart';
+import '../../../components/change_view_register.dart';
+import '../../../components/container_form_login.dart';
+import '../../../components/footer_custom.dart';
+import '../../../components/logo_item_login.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
+    // double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
         backgroundColor: Styles.negroOscuro,
@@ -48,7 +48,7 @@ class _LoginViewState extends State<LoginView> {
             Column(
               children: [
                 addVerticalSpace(70),
-                BienvenidaTitle(
+                const BienvenidaTitle(
                   text: 'Que bueno verte de nuevo',
                 ),
                 addVerticalSpace(50),
@@ -152,7 +152,7 @@ class _LoginViewState extends State<LoginView> {
                   textCambio: 'Registrate',
                 ),
                 const Spacer(),
-                const FooterLogin()
+                const FooterCustom()
               ],
             ),
           ],

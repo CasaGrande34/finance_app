@@ -1,3 +1,4 @@
+import 'package:finance_app/ui/login%20and%20register/components/container_form_register.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
@@ -9,11 +10,11 @@ import 'package:finance_app/utils/padding_custom.dart';
 
 import '../../../../../utils/responsive.dart';
 import '../../../../../utils/styles_custom.dart';
-import '../../components/bienvenida_title.dart';
-import '../../components/change_view_register.dart';
-import '../../components/container_form_login.dart';
-import '../../components/footer_login.dart';
-import '../../components/logo_item_login.dart';
+import '../../../components/bienvenida_title.dart';
+import '../../../components/change_view_register.dart';
+import '../../../components/container_form_login.dart';
+import '../../../components/footer_custom.dart';
+import '../../../components/logo_item_login.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
+    // double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
         backgroundColor: Styles.negroOscuro,
@@ -59,7 +60,8 @@ class _RegisterViewState extends State<RegisterView> {
                   duration: const Duration(milliseconds: 500),
                   builder: (context, value, child) => Transform.scale(
                     scale: 1.0 * value,
-                    child: const ContainerFormLogin(title: 'Crea una cuenta'),
+                    child:
+                        const ContainerFormRegister(title: 'Crea una cuenta'),
                   ),
                 ),
                 addVerticalSpace(padding2),
@@ -146,13 +148,13 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                 ),
                 addVerticalSpace(padding2),
-                ChangeView(
+                const ChangeView(
                   route: RoutesDelegateFluro.loginR,
                   text1: 'Ya tienes cuenta?',
                   textCambio: 'Inicia sesion',
                 ),
                 const Spacer(),
-                const FooterLogin()
+                const FooterCustom()
               ],
             ),
           ],

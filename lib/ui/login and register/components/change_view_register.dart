@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/add_space.dart';
-import '../../../../utils/styles_custom.dart';
+import '../../../../utils/add_space.dart';
+import '../../../utils/styles_custom.dart';
 
 class ChangeView extends StatelessWidget {
   final String text1;

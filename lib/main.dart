@@ -1,14 +1,17 @@
-import 'package:finance_app/providers/expansion_state.dart';
+import 'package:finance_app/services/local_storage.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
 import 'package:provider/provider.dart';
 // import 'package:url_strategy/url_strategy.dart';
-import 'package:finance_app/providers/expenses_provider.dart';
-import 'package:finance_app/providers/data_firestore_provider.dart';
+
 //file addresses
 import 'routes/router_flutro.dart';
 import 'package:finance_app/services/theme_custom.dart';
+import 'package:finance_app/providers/auth_provider.dart';
+import 'package:finance_app/providers/expansion_state.dart';
+import 'package:finance_app/providers/expenses_provider.dart';
+import 'package:finance_app/providers/data_firestore_provider.dart';
 
 void main() async {
   //Eliminacion del hastag en flutter web
@@ -24,6 +27,7 @@ void main() async {
   //     ),
   //   );
   WidgetsFlutterBinding.ensureInitialized();
+  await LocalStorage.configurePrefs();
   RoutesDelegateFluro.configureRoutes();
   runApp(const AppState());
 }
@@ -43,6 +47,9 @@ class AppState extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => ExpansionState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AuthProvider(),
         ),
       ],
       child: const MyApp(),
