@@ -18,8 +18,7 @@ class LoginFormProvider extends ChangeNotifier {
 
   bool validateForm() {
     if (loginFormKey.currentState!.validate()) {
-      // buttonController.reset();
-      Timer(const Duration(milliseconds: 2500), () {
+      Timer(const Duration(seconds: 6), () {
         buttonController.success();
         Timer(const Duration(milliseconds: 1200), () {
           buttonController.reset();
@@ -27,7 +26,7 @@ class LoginFormProvider extends ChangeNotifier {
       });
       return true;
     } else {
-      Timer(const Duration(milliseconds: 1000), () {
+      Timer(const Duration(seconds: 3), () {
         buttonController.error();
         Timer(const Duration(milliseconds: 1700), () {
           buttonController.reset();

@@ -1,5 +1,6 @@
 import 'package:finance_app/services/local_storage.dart';
 import 'package:finance_app/services/navigation_service.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 //dependencies
@@ -71,6 +72,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
       title: widget.title,
       onGenerateRoute: RoutesDelegateFluro.router.generator,
@@ -79,4 +81,13 @@ class _MyAppState extends State<MyApp> {
       themeMode: ThemeMode.system,
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }
