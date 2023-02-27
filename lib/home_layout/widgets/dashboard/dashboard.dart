@@ -13,6 +13,7 @@ class DashBoardHome extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        
         const NavBarCustom(),
         Stack(
           children: [
@@ -263,3 +264,5 @@ class _FlechaState extends State<Flecha> {
 //     );
 //   }
 // }
+
+

@@ -1,14 +1,14 @@
-import 'package:finance_app/providers/auth_provider.dart';
-import 'package:finance_app/services/local_storage.dart';
+import 'dart:async';
+
+import 'package:fluro/fluro.dart';
+import 'package:finance_app/views.dart';
+import '../home_layout/home_layout.dart';
 import 'package:finance_app/login%20and%20register/login_layout/login_layout.dart';
 import 'package:finance_app/login%20and%20register/register_layout/register_layout.dart';
 import 'package:finance_app/splashs_layout/splash_layout.dart';
-import 'package:fluro/fluro.dart';
-import 'package:provider/provider.dart';
-//file addresses
-import 'package:finance_app/views.dart';
 
-import '../home_layout/home_layout.dart';
+import 'package:provider/provider.dart';
+import 'package:finance_app/providers/auth_provider.dart';
 
 //Handlers
 final Handler homeHandler = Handler(
@@ -21,6 +21,7 @@ final Handler homeHandler = Handler(
     if (authProvider.status == AuthStatus.noAuthenticated) {
       return const LoginLayout();
     }
+    Timer(const Duration(milliseconds: 4000), () {});
     return const HomeLayout();
   }),
 );
